@@ -1,6 +1,6 @@
 1
 00:00:00,120 --> 00:00:02,400
-Bo dia novamente. Esta é a sequência 3 desta aula.
+Bom dia novamente. Esta é a sequência 3 desta aula.
 
 2
 00:00:02,400 --> 00:00:06,800
@@ -8,17 +8,17 @@ Vamos perceber porque escolhemos OCaml
 
 3
 00:00:06,819 --> 00:00:10,200
-ouvindo os testemunhosdos utilizadores
+ouvindo os testemunhos dos utilizadores
 --- de utilizadores reais ---
 
 4
 00:00:10,200 --> 00:00:15,200
-e perceber porque são tambem entusiastas
+e perceber porque são também entusiastas
 a propósito desta linguagem.
 
 5
 00:00:15,250 --> 00:00:17,500
-então, quem utiliza a linguagem de programação OCaml ?
+então, quem utiliza a linguagem de programação OCaml?
 
 6
 00:00:17,500 --> 00:00:20,550
@@ -35,11 +35,11 @@ em várias universidades, em Paris e arredores.
 
 9
 00:00:25,990 --> 00:00:28,800
-Na europa, várias universidades de diferentes paises :
+Na Europa, várias universidades de diferentes países:
 
 10
 00:00:28,800 --> 00:00:33,600
-em Itália, na Dinamarca, Polonia, Aústria.
+em Itália, na Dinamarca, Polónia, Áustria.
 ~~~ nota do tradutor: Em Portugal! ~~~
 
 11
@@ -66,7 +66,7 @@ O assistente de prova Coq,
 
 16
 00:00:47,400 --> 00:00:49,900
-que recebeu  Prémio "Software System"
+que recebeu o Prémio "Software System"
 
 17
 00:00:49,999 --> 00:00:52,000
@@ -89,7 +89,7 @@ do Airbus A380.
 21
 00:01:02,400 --> 00:01:06,800
 A plataforma Frama-C,
-que realiza analises avançadas de programas C.
+que realiza análises avançadas de programas C.
 
 22
 00:01:06,800 --> 00:01:11,480
@@ -98,7 +98,7 @@ de escrever aplicações web.
 
 23
 00:01:11,480 --> 00:01:15,590
-Alt-Ergo, um solver SAT modulo teoria.
+Alt-Ergo, um solver SAT módulo teoria.
 
 24
 00:01:15,590 --> 00:01:19,800
@@ -107,13 +107,12 @@ desenvolver um núcleo na forma de uma biblioteca
 
 25
 00:01:19,800 --> 00:01:25,200
-que pode lugar directamente no interior
+que pode ligar directamente no interior
 da sua aplicação,
 
 26
 00:01:25,200 --> 00:01:27,600
-para executar a aplicação sobre « metal nu. »
-(bare metal)
+para executar a aplicação sobre bare metal
 
 27
 00:01:27,600 --> 00:01:32,270
@@ -140,7 +139,7 @@ E muitos outros.
 
 32
 00:01:42,600 --> 00:01:50,000
-E há depois a indústria que utiliza OCaml para
+E há depois existe a indústria que utiliza OCaml para
 as aplicações avançadas e complexas.
 
 33
@@ -153,7 +152,7 @@ Bloomberg, JaneStreet, LexiFi...
 
 35
 00:01:56,550 --> 00:01:58,400
-Mas há também sistemas aerospaciais
+Mas existem também sistemas aerospaciais
 
 36
 00:01:58,400 --> 00:02:01,500
@@ -161,11 +160,11 @@ como Dassault Aviation que o utiliza.
 
 37
 00:02:01,590 --> 00:02:05,500
-Há também virtualização da Cloud : Citrix.
+Há também virtualização da Cloud: Citrix.
 
 38
 00:02:05,500 --> 00:02:10,200
-Sistemas Operativos : Microsoft, Red Hat,
+Sistemas Operativos: Microsoft, Red Hat,
 e muitos outros.
 
 39
@@ -241,7 +240,7 @@ escritas por outras pessoas.
 
 56
 00:02:55,480 --> 00:02:57,359
-Temos em seguida provas mecânicas:
+Temos de seguida provas mecânicas:
 
 57
 00:02:57,359 --> 00:02:58,600
@@ -261,12 +260,12 @@ E a equipa de Coq disse-nos,
 
 61
 00:03:06,800 --> 00:03:10,600
-que se deviam escolher um aspecto
-particular da linguagem 
+que se tivessem de escolher um aspecto
+particular da linguagem
 
 62
 00:03:10,629 --> 00:03:13,489
-o que é essencial para eles, seria
+que é essencial para eles, seria
 o filtro (pattern matching).
 
 63
@@ -294,7 +293,7 @@ eficaz e é expressivo,
 
 68
 00:03:37,760 --> 00:03:39,600
-de fato, precisam de eficiência,
+de facto, precisam de eficiência,
 
 69
 00:03:39,600 --> 00:03:43,300
@@ -317,7 +316,7 @@ de verificação estática de tipos,
 
 73
 00:03:52,200 --> 00:03:57,629
-porque desta forma, evite um
+porque desta forma, evita-se um
 número incrível de erros.
 
 74
@@ -336,7 +335,7 @@ considera que é graça ao sistema de tipos de OCaml,
 77
 00:04:09,419 --> 00:04:16,359
 que Ocsigen pode fazer coisas incríveis
-como a verificação estática de tipos :
+como a verificação estática de tipos:
 
 78
 00:04:16,359 --> 00:04:20,299
@@ -373,11 +372,11 @@ do código que precisam de serem modificados.
 
 85
 00:04:42,270 --> 00:04:44,800
-e para eles, isso salva-lhes a vida.
+E para eles, isso salva-lhes a vida.
 
 86
 00:04:44,800 --> 00:04:46,940
-permite evitar-lhe dias de
+Permite-lhes evitar dias de
 testes e debugging.
 
 87
@@ -426,7 +425,7 @@ E, para eles, é fascinante.
 
 97
 00:05:19,490 --> 00:05:23,600
-Nos esperamos que apreciará o
+Nós esperamos que aprecie o
 sabor deste poder
 
 98
@@ -458,7 +457,7 @@ qualidade, legível e reutilizável.
 
 104
 00:05:52,699 --> 00:05:53,990
-Finança.
+Finanças.
 
 105
 00:05:53,990 --> 00:05:55,400
@@ -491,7 +490,7 @@ de um sistema portável.
 111
 00:06:16,780 --> 00:06:21,439
 Têm clientes que utilizam Unix, Windows,
-ou até mento somente um browser,
+ou até mesmo somente um browser,
 
 112
 00:06:21,439 --> 00:06:26,189
@@ -527,11 +526,11 @@ Isto significa que vão escrever todas as funcionalidades
 119
 00:06:45,500 --> 00:06:48,800
 que são necessárias para que uma aplicação se executa
-sobre « metal nu ».
+sobre bare metal.
 
 120
 00:06:48,800 --> 00:06:52,420
-uma parte do sistema operativo, que pode ser integrado
+Uma parte do sistema operativo, que pode ser integrada
 diretamente dentro da aplicação,
 
 121
@@ -565,7 +564,7 @@ muito interessante.
 
 127
 00:07:17,000 --> 00:07:21,000
-Sugiro-vos fortemente que procure
+Sugiro fortemente que procure
 esta comunicação da ACM.
 
 128
@@ -593,11 +592,11 @@ de negociação financeira,
 133
 00:07:31,700 --> 00:07:34,110
 que manipulam 10 mil milhões de
-dollares por dia,
+doláres por dia,
 
 134
 00:07:34,110 --> 00:07:37,000
-dois por centos de todas as transações
+dois por cento de todas as transações
 financeiras do mundo,
 
 135
@@ -621,7 +620,7 @@ em vez de utilizar outras linguagens
 
 139
 00:07:47,000 --> 00:07:48,740
-por uma razão muito simples, que é :
+por uma razão muito simples, que é:
 
 140
 00:07:48,740 --> 00:07:51,000
@@ -638,7 +637,7 @@ Para eles, uma organização financeira,
 
 143
 00:07:56,000 --> 00:07:58,900
-onde um erro pode custar milhões de dollares,
+onde um erro pode custar milhões de doláres,
 
 144
 00:07:58,900 --> 00:08:01,530
@@ -659,16 +658,16 @@ E enfim, a virtualização e o Cloud Computing.
 
 148
 00:08:12,300 --> 00:08:15,599
-Tem o Citrix, com o hypervisor Xen,
+Encaramo-nos com a Citrix, com o hypervisor Xen,
 
 149
 00:08:15,599 --> 00:08:19,969
-Aqui, todos as ferramentas que acompanham o
+aqui, todos as ferramentas que acompanham o
 hypervisor Xen estão escritos em OCaml.
 
 150
 00:08:19,969 --> 00:08:22,400
-Richard Sharp, de Citrix nos diz que
+Richard Sharp, da Citrix diz-nos que
 
 151
 00:08:22,400 --> 00:08:28,240
@@ -686,7 +685,7 @@ variedade de utilizadores OCaml,
 
 154
 00:08:37,400 --> 00:08:40,389
-do ensino para a investigação e para a indústria.
+do ensino para a investigação, para a indústria.
 
 155
 00:08:40,389 --> 00:08:42,000
@@ -694,33 +693,33 @@ E se quer olhar para todas estes citações,
 
 156
 00:08:42,000 --> 00:08:47,000
-Verá que todas as pessoas apreciam
+verá que todas as pessoas apreciam
 todas a segurança,
 
 157
 00:08:47,000 --> 00:08:50,200
-que traz a tipagem estática forte,
+que é trazida pela tipagem estática forte,
 
 158
 00:08:50,200 --> 00:08:52,110
-e pelo filtro ;
+e pelo filtro,
 
 159
 00:08:52,110 --> 00:08:54,510
-a eficiência, devido ao compilador altamente performante,
+a eficiência, devido ao compilador de alta performante,
 
 160
 00:08:54,510 --> 00:08:57,900
 não quer de uma linguagem de programação segura
-que torna lento os vossos programas,
+que torna lento os vossos programas.
 
 161
 00:08:57,900 --> 00:08:59,320
-quer igualmente programas rápidos ;
+Quer igualmente programas rápidos.
 
 162
 00:08:59,320 --> 00:09:03,060
-e expressividade, que torna esta combinação mágica,
+E expressividade, que torna esta combinação mágica,
 
 163
 00:09:03,060 --> 00:09:05,399
