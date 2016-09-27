@@ -68,7 +68,7 @@ Quais são os objectivos de aprendizagem deste curso?
 16
 00:01:01,460 --> 00:01:05,479
 Queremos ensinar-vos a programar
-utilizando o estilo funcional, em geral.
+utilisando o estilo funcional, em geral.
 
 17
 00:01:05,479 --> 00:01:09,680
@@ -164,17 +164,17 @@ O plano geral.
 37
 00:02:13,010 --> 00:02:17,780
 Uma introdução e uma visão geral
-de todo o curso e das noções de base
+de todo o curso e das noções base
 
 38
 00:02:17,780 --> 00:02:22,520
 durante a semana 0,
-esta que estão a escutar agora.
+esta que estao a escutar agora.
 
 39
 00:02:22,520 --> 00:02:29,800
 Em seguida, avançamos et começamos a aprender
-os tipos de dados de base fornecidos pela linguagem.
+os tipos de dados base fornecidos pela linguagem.
 
 40
 00:02:29,800 --> 00:02:32,080
@@ -183,7 +183,7 @@ Como definir funções.
 41
 00:02:32,080 --> 00:02:38,650
 Depois, irão aprender a definir
-estruturas de dados de base.
+estruturas de dados base.
 
 42
 00:02:38,650 --> 00:02:42,849
@@ -201,8 +201,8 @@ o poder de uma linguagem de programação funcional
 
 45
 00:02:51,370 --> 00:02:55,849
-aprendendo a utilizar, definir,
-e manipular funções de ordem superior.
+aprendendo a utilisar, definir,
+e manipular funções de orderm superior.
 
 46
 00:02:55,849 --> 00:02:58,450
@@ -248,7 +248,7 @@ o sistema de módulos avançado,
 
 56
 00:03:18,769 --> 00:03:23,980
-e como o utilizar para fornecer
+e como o utilisar para fornecer
 abstração de dados.
 
 57
@@ -302,7 +302,7 @@ e de la vos ensinar,
 68
 00:03:58,060 --> 00:04:02,890
 conhecerão alguns
-utilizadores industriais e investigadores,
+utilisadores industriais e investigadores,
 
 69
 00:04:02,890 --> 00:04:07,340

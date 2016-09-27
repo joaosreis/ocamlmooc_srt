@@ -22,7 +22,7 @@ da linguagem OCaml,
 
 6
 00:00:18,050 --> 00:00:20,720
-que irão utilisar durante este curso.
+que irão utilizar durante este curso.
 
 7
 00:00:20,720 --> 00:00:23,170

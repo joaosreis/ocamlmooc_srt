@@ -5,7 +5,7 @@ Olá de novo.
 2
 00:00:00,690 --> 00:00:05,800
 Vamos agora revisitar rapidamente a história e a
-motivação relativas à programação funcional.
+motivaço relativas à programação funcional.
 
 3
 00:00:05,830 --> 00:00:12,929
@@ -31,7 +31,7 @@ da ACM sobre "Computação como uma Disciplina".
 
 8
 00:00:34,460 --> 00:00:37,430
-Os componentes de base da Computação são:
+Os componentes base da Computação são:
 
 9
 00:00:37,430 --> 00:00:42,850
@@ -93,7 +93,7 @@ para decidir se um enunciado lógico é valido, ou não,
 
 21
 00:01:44,740 --> 00:01:48,320
-utilizando um número finito de operações.
+utilizando um número finito de operaçes.
 
 22
 00:01:48,320 --> 00:01:50,580
@@ -147,7 +147,7 @@ e da programação imperativa.
 33
 00:02:32,940 --> 00:02:37,670
 De certa forma, a fita é uma abstração
-de uma memória endereçável de escrita e leitura,
+de uma memória aderessável de escrita e leitura,
 
 34
 00:02:37,670 --> 00:02:41,550
@@ -198,7 +198,7 @@ Neste programa, que calcula a função factorial,
 
 44
 00:03:30,209 --> 00:03:35,560
-utilizamos as variáveis
+utlizamos as variáveis
 --- colocando os valores nas células de memória ---
 
 45
@@ -245,7 +245,7 @@ Este sistema possui apenas alguns símbolos,
 
 54
 00:04:15,800 --> 00:04:18,760
-que permitem escrever funções, sem nomes.
+que permitem escrever funçõs, sem nomes.
 
 55
 00:04:18,769 --> 00:04:22,000
@@ -312,7 +312,7 @@ como parâmetro efectivo para evolução >>
 
 69
 00:05:14,749 --> 00:05:24,189
-<< apos substituir todas as ocorrências do
+<< apos substituir todas as ocurrências do
 parâmetro formal <u>x</u> pelo parâmetro efectivo <u>N</u> ».
 
 70
@@ -395,12 +395,12 @@ o resultado de uma computação;
 
 88
 00:06:29,200 --> 00:06:35,520
-e de maneira geral podem utilizar
+e de maneira geral podem utilisar
 uma função onde se espera uma expressão.
 
 89
 00:06:35,520 --> 00:06:39,619
-Este NãO é de todo o caso da maior parte das linguagens
+Este N~AO é de todo o caso da maior parte das linguagens
 de programação a que estão habituados.
 
 90
@@ -550,7 +550,7 @@ escolhem uma linguagem de programação.
 121
 00:09:29,709 --> 00:09:33,819
 Mas as linguagens de programação
-não nasceram de facto iguais !
+não nascertam de facto iguais !
 
 122
 00:09:33,819 --> 00:09:39,690
@@ -578,7 +578,7 @@ de dados, diferentes modelos de execução,
 
 127
 00:09:57,120 --> 00:09:58,740
-diferentes mecanismos de abstração.
+diferentes mecânismos de abstração.
 
 128
 00:09:58,740 --> 00:10:02,680
@@ -732,7 +732,7 @@ sobre a educação da ciência da computação onde explicam
 
 161
 00:11:58,080 --> 00:12:02,839
-porque decidiram utilizar a programação
+porque decidiram utilisar a programação
 funcional na unidade curricular de primeiro ano.
 
 162
@@ -781,7 +781,7 @@ das várias máquinas disponíveis.
 171
 00:12:39,939 --> 00:12:45,379
 Dizem eles que, se escolherem sabiamente
-um conjunto de funções de ordem superior,
+um conjunto de funções de orderm superior,
 
 172
 00:12:45,380 --> 00:12:50,580

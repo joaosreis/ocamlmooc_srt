@@ -239,7 +239,7 @@ que trabalhou sobre este sistema,
 54
 00:03:29,610 --> 00:03:32,849
 em particular Michel Mauny e Pierre Weis
-que o fizeram crescer.
+que o maturaram.
 
 55
 00:03:32,849 --> 00:03:33,869
