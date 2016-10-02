@@ -8,7 +8,7 @@ Bem-vindos à semana 1
 
 3
 00:00:10,120 --> 00:00:14,660
-onde vams começar com o
+onde vamos começar com o
 conteúdo técnico deste MOOC.
 
 4
