@@ -5,7 +5,7 @@ Olá de novo!
 2
 00:00:00,810 --> 00:00:05,040
 Continuemos a nossa exposição dos
-tipos de dados de base em OCaml.
+tipos de dados básicos em OCaml.
 
 3
 00:00:05,040 --> 00:00:10,269
@@ -25,7 +25,7 @@ número flutuante e não um número inteiro,
 6
 00:00:20,290 --> 00:00:22,870
 o que significa que deve utilizar
-ou um point decimal,
+ou um ponto decimal,
 
 7
 00:00:22,870 --> 00:00:26,280
@@ -52,7 +52,7 @@ sobre os números flutuantes,
 
 12
 00:00:41,109 --> 00:00:45,829
-coo a raíz quadrada, o senos, o cosenos,
+como a raíz quadrada, o seno, o coseno,
 o valor absoluto, e assim sucessivamente...
 
 13
@@ -126,11 +126,11 @@ devolve-nos um erro de tipo.
 
 28
 00:01:53,780 --> 00:01:56,900
-Iato é na verdade um princípio importantíssimo em OCaml.
+Isto é na verdade um princípio importantíssimo em OCaml.
 
 29
 00:01:56,900 --> 00:01:59,740
-Todos os tipos de base são disjuntos,
+Todos os tipos base são disjuntos,
 
 30
 00:01:59,740 --> 00:02:04,200
@@ -179,12 +179,12 @@ no sistema OCaml: a inferência de tipo.
 40
 00:02:37,470 --> 00:02:43,670
 Em OCaml temos operadores de conversão
-explícita entre quase todos os tipos de base,
+explícita entre quase todos os tipos base,
 
 41
 00:02:43,670 --> 00:02:47,980
-e se não existam, é muito fácil juntá-los
-por nós próprio.
+e se não existem, é muito fácil juntá-los
+por nós próprios.
 
 42
 00:02:47,980 --> 00:02:51,480
@@ -211,12 +211,12 @@ da função seguido do argumento.
 
 47
 00:03:07,640 --> 00:03:10,900
-Voltaremos sobre o conceito de função
+Voltaremos a falar de funções
 mais adiante esta semana,
 
 48
 00:03:10,900 --> 00:03:16,520
-deixe-me apontar que as parêntesis não constam
+deixe-me apontar que os parênteses não constam
 da sintaxe da aplicação de função.
 
 49
@@ -226,17 +226,17 @@ seguido do argumento.
 
 50
 00:03:20,150 --> 00:03:27,690
-Utilizamos as parêntesis para agrupar,
+Utilizamos os parênteses para agrupar,
 ou estruturar uma expressão mais complexa.
 
 51
 00:03:27,690 --> 00:03:31,830
-O tipo de dado que segue é o dos caracteres,
+O tipo de dados que se segue é o dos carateres,
 escreve-se <u>char</u>.
 
 52
 00:03:31,830 --> 00:03:38,440
-Este tipo contém 256 valores de tipo caráter.
+Este tipo contém 256 valores de tipo carater.
 
 53
 00:03:38,440 --> 00:03:42,840
@@ -267,7 +267,7 @@ estas vêm de um módulo chamado <u>Char</u>.
 
 59
 00:04:05,340 --> 00:04:09,340
-É por enquanto quanto basta saber
+E é isto que por enquanto basta saber
 sobre a utilização deste módulo.
 
 60
@@ -277,12 +277,12 @@ da última semana deste MOOC.
 
 61
 00:04:17,560 --> 00:04:21,600
-Aqui temos algumas expressões simples com caráteres.
+Aqui temos algumas expressões simples com carateres.
 
 62
 00:04:21,600 --> 00:04:27,140
-Assim, por exemplo, podemos pedir pelo
-código inteiro do caráter <u>'A'</u>,
+Assim, por exemplo, podemos pedir o
+código inteiro do caratere <u>'A'</u>,
 
 63
 00:04:28,740 --> 00:04:30,540
@@ -291,11 +291,11 @@ que é 65.
 64
 00:04:30,540 --> 00:04:38,580
 Podemos também utilizar os números decimais para
-designar os caráteres constantes. Eis um exemplo.
+designar os carateres constantes. Eis um exemplo.
 
 65
 00:04:38,580 --> 00:04:42,740
-Temos aqui uma constante de tipo caráter
+Temos aqui uma constante de tipo caratere
 cujo código inteiro é 122.
 
 66
@@ -306,7 +306,7 @@ precisamente este valor, ou seja 122.
 67
 00:04:49,860 --> 00:04:56,380
 Podemos também proceder no outro sentido,
-isto é, converter um código inteiro num caráter.
+isto é, converter um código inteiro num caratere.
 
 68
 00:04:56,380 --> 00:05:01,100
@@ -314,7 +314,7 @@ Como pode vê-lo no exemplo seguinte com <u>Char.chr</u>.
 
 69
 00:05:01,620 --> 00:05:06,040
-E temos de novo a letra 'A' maíuscula.
+E temos de novo a letra 'A' maiúscula.
 
 70
 00:05:06,040 --> 00:05:11,360
@@ -333,12 +333,12 @@ reencontramos exactamente o mesmo valor.
 
 73
 00:05:23,060 --> 00:05:27,820
-Finalmente, temos o tipo das cadeias de caráteres, como em
+Finalmente, temos o tipo das cadeias de carateres, como em
 praticamente todas as linguagens de programação.
 
 74
 00:05:27,820 --> 00:05:31,000
-As cadeias de caráteres (string) são escritas entre aspas.
+As cadeias de carateres (strings) são escritas entre aspas.
 
 75
 00:05:31,000 --> 00:05:37,120
@@ -366,8 +366,8 @@ uma string que possa efectivamente representar um flutuante.
 
 80
 00:05:57,120 --> 00:06:03,140
-Algumas armadilhas. Perdoam-me a insistência :
-os tipos de dados de base são disjuntos.
+Algumas armadilhas. Perdoem-me a insistência:
+os tipos de dados básicos são disjuntos.
 
 81
 00:06:03,140 --> 00:06:08,820
@@ -390,7 +390,7 @@ não a partir de 1.
 
 85
 00:06:21,509 --> 00:06:27,409
-Um último ponto : se por acaso ler
+Um último ponto: se por acaso ler
 documentação antiga do sistema OCaml,
 
 86
@@ -399,7 +399,7 @@ poderá encontrar um módulo diferente para as strings,
 
 87
 00:06:30,400 --> 00:06:34,340
-numa altura em que essas eram alteráveis ;
+numa altura em que essas eram alteráveis,
 já não é mais o caso.
 
 88
@@ -422,7 +422,7 @@ o que nos devolve naturalmente a string <u>"abcdef"</u>.
 
 92
 00:06:53,220 --> 00:06:59,760
-Na sequência, temos funções de base
+Na sequência, temos funções base
 importantes sobre strings, como o comprimento,
 
 93
@@ -439,7 +439,7 @@ Podemos tentar converter uma string para inteiro.
 
 96
 00:07:10,500 --> 00:07:16,000
-Esta avaliação pode falhar se  o argumento
+Esta avaliação pode falhar se o argumento
 é uma string qualquer.
 
 97
@@ -463,15 +463,15 @@ com o próprio valor inteiro,
 101
 00:07:32,300 --> 00:07:34,620
 que evidentemente pertence a um tipo bem diferente.
- 
+
 102
 00:07:34,620 --> 00:07:40,280
-Por isso, aqui, obtemos de fato um valor inteiro
+Por isso, aqui, obtemos de facto um valor inteiro
 que é <u>12345</u>.
 
 103
 00:07:40,900 --> 00:07:45,840
-Podemos igualmente ir noutra direcção,
+Podemos igualmente ir noutra direção,
 considerar um valor inteiro e convertê-lo
 
 104
@@ -480,7 +480,7 @@ para dar uma string.
 
 105
 00:07:49,760 --> 00:07:55,300
-E podemos também tentar obter o caráter que está
+E podemos também tentar obter o caratere que está
 numa dada posição na string,
 
 106
@@ -489,18 +489,18 @@ como no nosso último exemplo.
 
 107
 00:07:56,500 --> 00:08:06,160
-Consideremos a string <u>"abcdef"</u> da qual queremos o caráter
+Consideremos a string <u>"abcdef"</u> da qual queremos o caratere
 que está na posição 1. Este é, claro, <u>'b'</u>.
 
 108
 00:08:06,160 --> 00:08:11,480
 Já que <u>'a'</u> está na posição 0 e
-que encontramos o caráter <u>'b'</u> na posição 1.
+que encontramos o caratere <u>'b'</u> na posição 1.
 
 109
 00:08:13,480 --> 00:08:17,320
 Mais uma vez, poderá encontrar informação completa
-sobre os tipos de dados de base,
+sobre os tipos de dados básicos,
 
 110
 00:08:17,320 --> 00:08:20,080
@@ -514,4 +514,4 @@ no módulo <u>Pervasives</u>.
 112
 00:08:24,760 --> 00:08:30,440
 E na biblioteca standard encontrará módulos
-dedicados aos caráteres e strings.
+dedicados aos carateres e strings.
