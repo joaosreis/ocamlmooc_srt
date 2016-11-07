@@ -25,11 +25,11 @@ para instalar as bibliotecas de que precisa,
 
 7
 00:00:17,880 --> 00:00:19,039
-e acelerar o vosso desenvolvimento.
+e acelerar o  desenvolvimento.
 
 8
 00:00:19,039 --> 00:00:24,800
-chama-se OPAM e pode encontrá-lo qui :
+chama-se OPAM e pode encontrá-lo aqui:
 https://opam.ocaml.org/
 
 9
@@ -48,7 +48,8 @@ e muito mais outras ferramentas deste tipo.
 
 12
 00:00:34,550 --> 00:00:39,750
-Permita-me que me concentre agorasobre o cimpilador que vem com o sistema OCaml.
+Permita-me que me concentre agora sobre o compilador
+que vem com o sistema OCaml.
 
 13
 00:00:39,750 --> 00:00:46,420
@@ -66,7 +67,7 @@ que vai utilizar em particular nesta aula.
 
 16
 00:00:53,400 --> 00:01:01,610
-Depois, ha o compilador de bytecode
+Depois, há o compilador de bytecode
 <u>ocamlc</u> que produz bytecode portátil.
 
 17
@@ -79,7 +80,7 @@ Terá mais detalhes sobre a portabilidade aqui.
 
 19
 00:01:08,320 --> 00:01:12,010
-E tem uam série de compiladores nativos <u>ocamlopt</u>,
+E tem uma série de compiladores nativos <u>ocamlopt</u>,
 
 20
 00:01:12,010 --> 00:01:14,750
@@ -100,12 +101,12 @@ bem mais rápidos do que com o compilador bytecode.
 
 24
 00:01:26,670 --> 00:01:29,659
-MAs, claro, perde a portabilidade neste caso.
+Mas, claro, perde a portabilidade neste caso.
 
 25
 00:01:29,659 --> 00:01:34,070
 E em seguida, finalmente,
-o último da família : <u>js_of_ocaml</u>.
+o último da família: <u>js_of_ocaml</u>.
 
 26
 00:01:34,070 --> 00:01:38,670
@@ -135,17 +136,16 @@ pelos programadores OCaml.
 
 32
 00:01:55,140 --> 00:01:59,830
-E o que ela faz é mesmo ler o vosso
-programa, frase por frase.
+E o que ele faz é mesmo ler o programa, frase por frase.
 
 33
 00:01:59,830 --> 00:02:03,119
---- quando o escreve e tecle "Enter",
-este é lido poe este sistema ---
+--- quando o escreve e prime "Enter",
+este é lido por este sistema ---
 
 34
 00:02:03,119 --> 00:02:07,990
-mal a frase encontra-se completa, esta frase é compilada,
+mal a frase se encontra completa, esta frase é compilada,
 
 35
 00:02:07,990 --> 00:02:11,200
@@ -176,12 +176,12 @@ ideias novas,
 41
 00:02:27,529 --> 00:02:31,230
 experimentar o desenvolvimento de uma parte
-sofisticada dum algoritmo,
+sofisticada de um algoritmo,
 
 42
 00:02:31,230 --> 00:02:33,700
-porque nos podemos ver o resultado
-produzido pelo programa,
+porque podemos ver o resultado produzido
+pelo programa,
 
 43
 00:02:33,700 --> 00:02:36,650
@@ -198,11 +198,11 @@ um programa de visualização
 
 46
 00:02:43,139 --> 00:02:45,919
-Vejamos uma interação típica :
+Vejamos uma interação típica:
 
 47
 00:02:45,919 --> 00:02:48,120
-O que parece a utilização deste toplevel?
+como realmente parece a utilização deste toplevel.
 
 48
 00:02:48,120 --> 00:02:50,569
@@ -215,7 +215,7 @@ Se tem OCaml instalado na sua máquina,
 50
 00:02:52,200 --> 00:02:55,709
 executa o comando <u>ocaml</u>, e obtém então
-uma mensagem como esta aqui :
+uma mensagem como esta aqui:
 
 51
 00:02:55,709 --> 00:03:00,919
@@ -224,7 +224,7 @@ e depois mostra-vos o "prompt"
 
 52
 00:03:00,919 --> 00:03:03,559
-Este sinal aqui, um "prompt" que vos diz simplesmente :
+Este sinal aqui, um "prompt" que vos diz simplesmente:
 
 53
 00:03:03,559 --> 00:03:07,549
@@ -254,12 +254,12 @@ uma outra função que é uma função anónima.
 
 59
 00:03:24,799 --> 00:03:28,169
-esta função anónima espera somente por um <u>x</u>,
+Esta função anónima espera somente por um <u>x</u>,
 e devolve <u>x + 1</u>.
 
 60
 00:03:28,169 --> 00:03:31,049
-é a função "sucessor"
+É a função "sucessor".
 
 61
 00:03:31,049 --> 00:03:32,169
@@ -272,15 +272,15 @@ de 6 elementos de <u>1</u> a <u>6</u>.
 
 63
 00:03:37,439 --> 00:03:41,449
-Mal carregue sobre "Enter" aqui,
+Mal prima "Enter" aqui,
 
 64
 00:03:41,449 --> 00:03:43,269
-esta frase e´enviada para o compilador :
+esta frase é enviada para o compilador:
 
 65
 00:03:43,269 --> 00:03:46,869
-os tipos são verificados, a frase é compilada e avaliada;
+os tipos são verificados, a frase é compilada e avaliada,
 
 66
 00:03:46,869 --> 00:03:48,749
@@ -288,7 +288,7 @@ e, finalmente, o resultado é impresso.
 
 67
 00:03:48,749 --> 00:03:51,400
-De fato, obtém esta linha azul aqui.
+De facto, obtém esta linha azul aqui.
 
 68
 00:03:51,400 --> 00:03:54,909
@@ -335,7 +335,7 @@ desta estrutura de dados.
 77
 00:04:28,449 --> 00:04:32,919
 Para esta aula, vai utilizar um toplevel
-directamente no vosso browser.
+directamente no browser.
 
 78
 00:04:32,919 --> 00:04:34,590
@@ -369,16 +369,16 @@ Há muito outros locais onde
 85
 00:04:55,610 --> 00:04:59,690
 pode ter a impressão de introduzir
-um programa no vosso browser,
+um programa no browser,
 
 86
 00:04:59,690 --> 00:05:04,699
-mas há na realidade um servidor algures para onde
+mas na realidade existe um servidor algures para onde
 a frase é enviada e onde o resultado é calculado.
 
 87
 00:05:04,699 --> 00:05:07,079
-No é o caso aqui.
+Não é o caso aqui.
 
 88
 00:05:07,080 --> 00:05:09,600
@@ -456,12 +456,12 @@ em geral, encontrará um esqueleto do programa.
 
 105
 00:06:17,370 --> 00:06:21,909
---- mas em outros casos,
+--- mas noutros casos,
 precisará de o escrever totalmente ---
 
 106
 00:06:21,909 --> 00:06:26,210
-Neste editor, poderá editar directamente o vosso programa.
+Neste editor, poderá editar directamente o programa.
 
 107
 00:06:26,210 --> 00:06:27,210
@@ -511,7 +511,7 @@ A definição que está aqui não é exactamente a definição correcta.
 118
 00:06:56,060 --> 00:06:59,289
 Ou seja, as vezes, terá de alterar o esqueleto
-de solução que he é fornecido.
+de solução que lhe é fornecido.
 
 119
 00:06:59,289 --> 00:07:03,800
@@ -523,7 +523,7 @@ E, finalmente, <u>divide</u> é <u>x / y</u>.
 
 121
 00:07:06,960 --> 00:07:09,229
-Ok, fio fácil, e em direto.
+Ok, foi fácil, e direto.
 
 122
 00:07:09,229 --> 00:07:11,050
@@ -535,8 +535,7 @@ Uma vez que fez isso,
 
 124
 00:07:12,400 --> 00:07:15,930
-pode decidir, por exemplo, avaliar
-o vosso programa.
+pode decidir, por exemplo, avaliar o programa.
 
 125
 00:07:15,930 --> 00:07:19,749
@@ -544,12 +543,11 @@ Pode clicar sobre o botão <u>Evaluate >></u> aqui.
 
 126
 00:07:19,749 --> 00:07:25,539
-E tudo o que introduziu é enviado
-para o toplevel.
+E tudo o que introduziu é enviado para o toplevel.
 
 127
 00:07:25,539 --> 00:07:28,120
-Que agora se executa a sua frente.
+Que agora executa à sua frente.
 
 128
 00:07:28,120 --> 00:07:31,990
@@ -611,7 +609,7 @@ Veja, agora há um erro de sintaxe.
 
 141
 00:08:21,749 --> 00:08:27,539
-Está assinalada no editor.
+Está assinalado no editor.
 
 142
 00:08:27,539 --> 00:08:31,799
@@ -632,7 +630,7 @@ o editor volta ao esqueleto inicial.
 
 146
 00:08:40,870 --> 00:08:46,250
-Mas neste caso, todo o vosso trabalho parece ter-se perdido,
+Mas neste caso, todo o trabalho parece ter-se perdido,
 ~~~ Nota: pode anular com Ctrl-Z ~~~
 
 147

@@ -1,0 +1,609 @@
+1
+00:00:00,170 --> 00:00:00,450
+Olá.
+
+2
+00:00:00,450 --> 00:00:05,600
+Esta secção tem como nome:
+"Funções como cidadão de primeira classe",
+
+3
+00:00:05,600 --> 00:00:08,400
+e vamos tentar explicar o que significa,
+
+4
+00:00:08,400 --> 00:00:13,030
+que em programação funcional, as funções
+sejam consideradas como cidadão de primeira classe.
+
+5
+00:00:13,030 --> 00:00:16,600
+Na primeira semana, as expressões em OCaml
+que foram abordadas,
+
+6
+00:00:16,600 --> 00:00:21,480
+pudemos ver que as expressões podem denotar
+ou calcular valores
+
+7
+00:00:21,480 --> 00:00:25,859
+de tipos como inteiros, booleanos,
+ou de outros tipos básicos.
+
+8
+00:00:25,859 --> 00:00:31,609
+No vídeo anterior aprendemos que as expressões
+podem também calcular valores
+
+9
+00:00:31,609 --> 00:00:32,800
+de tipo funcional
+
+10
+00:00:32,800 --> 00:00:38,249
+ao usarmos, por exemplo, a construção:
+<u>function parâmetro -> algum valor</u>.
+
+11
+00:00:38,249 --> 00:00:43,799
+Em programação funcional os valores funcionais
+são, na verdade, apenas valores
+
+12
+00:00:43,799 --> 00:00:49,229
+como qualquer outro valor que usam um tipo particular.
+
+13
+00:00:49,229 --> 00:00:53,729
+Vimos também no video anterior que
+
+14
+00:00:53,729 --> 00:00:57,690
+isto nos permite dar nomes às coisas de uma forma única,
+
+15
+00:00:57,690 --> 00:01:01,249
+com a construção:
+<u>let identificador = alguma_coisa</u>.
+
+16
+00:01:01,249 --> 00:01:05,500
+A única generalização vem do que
+podemos escrever dentro de uma expressão
+
+17
+00:01:05,500 --> 00:01:07,940
+que é usada para calcular um valor.
+
+18
+00:01:07,950 --> 00:01:13,759
+A linguagem OCaml permite que esse valor
+seja de qualquer tipo.
+
+19
+00:01:13,759 --> 00:01:18,219
+Os tipos têm, obviamente, um papel importantíssimo
+para as funções e para o uso de funções.
+
+20
+00:01:18,219 --> 00:01:24,640
+Os tipos são, na verdade, o que permite controlar
+o que pode ser ou não ser feito em funções.
+
+21
+00:01:24,640 --> 00:01:30,359
+De um modo geral, se escrevermos uma função <u>f</u>
+que tem como tipo <u>t1 -> t2</u>
+
+22
+00:01:30,359 --> 00:01:34,929
+então podemos aplicar esta função
+a um argumento,
+
+23
+00:01:34,929 --> 00:01:39,700
+desde que, o tipo de <u>e1</u>
+seja igual ao argumento da função.
+
+24
+00:01:39,700 --> 00:01:47,700
+Ou, mais geralmente, que o tipo do argumento de
+<u>t1</u> seja igual ao tipo do argumento da nossa função.
+
+25
+00:01:47,719 --> 00:01:49,799
+E isto não pára por aqui.
+
+26
+00:01:49,799 --> 00:01:55,380
+As funções podem ser usadas em muitas outras formas em OCaml.
+
+27
+00:01:55,380 --> 00:01:59,170
+As funções podem fazer parte de qualquer
+construção de dados estruturados
+
+28
+00:01:59,170 --> 00:02:01,659
+que vimos na semana 2 e na semana 3.
+
+29
+00:02:01,660 --> 00:02:06,140
+Por exemplo, uma função pode fazer parte de uma lista,
+de um registo, de um tuplo, de um vector
+
+30
+00:02:06,140 --> 00:02:10,140
+de qualquer coisa que queiram imaginar.
+
+31
+00:02:10,140 --> 00:02:12,290
+Funções podem ser usadas como argumentos para outras funções.
+
+32
+00:02:12,290 --> 00:02:16,150
+Podem ser passadas como valores para outras funções.
+
+33
+00:02:16,150 --> 00:02:22,170
+Mais ainda, funções podem devolver
+como resultado outra função.
+
+34
+00:02:22,170 --> 00:02:26,200
+O que significa que, com funções podemos fazer
+exactamente as mesmas coisas que
+
+35
+00:02:26,200 --> 00:02:31,549
+qualquer outro valor de qualquer tipo na nossa
+linguagem de programação.
+
+36
+00:02:31,549 --> 00:02:36,309
+Isto é exactamente o que significa uma função
+ser um cidadão de primeira classe.
+
+37
+00:02:39,120 --> 00:02:42,260
+Este exemplo mostra que uma função pode, na verdade,
+
+38
+00:02:42,260 --> 00:02:46,610
+como qualquer outro valor em OCaml,
+pertencer a uma complexa estrutura de dados.
+
+39
+00:02:46,610 --> 00:02:52,769
+O que reforça o que queremos mostrar:
+que funções são cidadãos de primeira classe em OCaml.
+
+40
+00:02:52,769 --> 00:02:55,379
+Temos aqui uma lista de funções.
+
+41
+00:02:55,379 --> 00:02:58,540
+Podemos escrever a lista da mesma
+forma que fizemos anteriormente.
+
+42
+00:02:58,540 --> 00:03:02,079
+Definimos <u>fl</u> como sendo uma lista
+que contém duas expressões funcionais.
+
+43
+00:03:02,079 --> 00:03:04,860
+Vamos ver de que tipo é.
+
+44
+00:03:04,860 --> 00:03:07,049
+E, como era de esperar, é uma lista de funções.
+
+45
+00:03:07,049 --> 00:03:11,439
+E estas funções têm que ser, obrigatoriamente,
+do mesmo tipo.
+
+46
+00:03:11,439 --> 00:03:14,480
+No nosso caso, de inteiros para inteiros.
+
+47
+00:03:14,480 --> 00:03:17,890
+E agora podemos, por exemplo, agarrar nesta lista
+e no seu primeiro elemento,
+
+48
+00:03:17,890 --> 00:03:20,720
+que é uma função de inteiros para inteiros,
+
+49
+00:03:20,720 --> 00:03:24,590
+e aplicá-la a uma valor inteiro.
+
+50
+00:03:24,590 --> 00:03:27,629
+E como podemos ver, funciona perfeitamente.
+
+51
+00:03:30,280 --> 00:03:33,200
+Neste exemplo, vamos poder ver a utilidade
+
+52
+00:03:33,209 --> 00:03:37,290
+de passar funções como valores para outras funções.
+
+53
+00:03:37,290 --> 00:03:40,950
+Por exemplo, aqui temos uma função
+que se chama <u>apply_twice</u>.
+
+54
+00:03:40,950 --> 00:03:43,769
+Esta função recebe uma função como argumento.
+Uma função <u>f</u>.
+
+55
+00:03:43,769 --> 00:03:47,560
+E aplica-a duas vezes ao argumento <u>x</u>.
+
+56
+00:03:47,560 --> 00:03:51,239
+Como podemos ver, isto pode ser escrito
+de uma maneira simples.
+
+57
+00:03:51,239 --> 00:03:53,659
+E obtemos agora uma função,
+
+
+58
+00:03:53,659 --> 00:03:58,300
+que recebe como primeiro argumento
+de tipo funcional <u>'a -> 'a</u>,
+
+59
+00:03:58,310 --> 00:03:59,370
+e depois um valor <u>'a</u>,
+
+60
+00:03:59,370 --> 00:04:00,579
+que devolve <u>'a</u>.
+
+61
+00:04:00,579 --> 00:04:02,219
+E como devem ter reparado,
+
+62
+00:04:02,219 --> 00:04:04,269
+isto é obviamente um tipo polimórfico.
+
+63
+00:04:04,269 --> 00:04:10,100
+porque não há nada que constrinja o tipo
+de valores usados nestra construção.
+
+64
+00:04:10,159 --> 00:04:16,570
+Por exemplo, podemos agora experimentar
+a função <u>apply_twice</u>,
+
+65
+00:04:16,570 --> 00:04:20,670
+aplicada à função de duplicação,
+e aplicada com o valor 1.
+
+66
+00:04:20,670 --> 00:04:26,520
+Neste caso obtemos o valor 4.
+
+67
+00:04:26,520 --> 00:04:30,600
+Podemos ir um pouco mais longe,
+e definir também uma função recursiva
+
+68
+00:04:30,660 --> 00:04:35,110
+que aplica uma função <u>f</u>,
+<u>n</u> vezes, a um valor <u>x</u>.
+
+69
+00:04:35,110 --> 00:04:39,760
+ao efectuar a recursivade sobre o valor <u>n</u>.
+
+70
+00:04:39,760 --> 00:04:42,140
+Ao fazer isto, obtemos a função <u>apply_n_times</u>,
+
+71
+00:04:42,140 --> 00:04:44,910
+que tem um tipo functional como primeiro argumento,
+
+72
+00:04:44,910 --> 00:04:46,590
+e um argumento inteiro,
+
+73
+00:04:46,590 --> 00:04:50,950
+e finalmente o valor para qual a função
+vai ser aplicada <u>n</u> vezes.
+
+74
+00:04:50,950 --> 00:04:54,300
+Por exemplo,
+se usarmos esta construção,
+
+75
+00:04:54,300 --> 00:04:58,160
+para aplicar a função de duplicar,
+10 vezes, ao valor 1.
+
+76
+00:04:58,160 --> 00:05:02,800
+Obtemos, obviamente,
+o valor 2 elevado a 10.
+
+77
+00:05:02,800 --> 00:05:07,080
+Que é 1024.
+
+78
+00:05:10,240 --> 00:05:16,580
+Temos agora aqui um exemplo que
+devolve um resultado funcional.
+
+79
+00:05:16,580 --> 00:05:18,150
+Isto será a função "compose".
+
+80
+00:05:18,150 --> 00:05:21,260
+A função "compose" aceita duas funções como argumento,
+
+81
+00:05:21,260 --> 00:05:25,780
+e irá devolver, como resultado, a composição
+das duas funções em argumento.
+
+82
+00:05:25,790 --> 00:05:27,470
+Como podemos escrever isto?
+
+83
+00:05:27,470 --> 00:05:30,810
+A função "compose" aceita dois argumentos,
+<u>f</u> e <u>g</u>,
+
+84
+00:05:30,810 --> 00:05:33,710
+e devolve uma nova função.
+
+85
+00:05:33,710 --> 00:05:38,420
+Esta nova função aceita <u>x</u>
+e aplica a função <u>f</u>, à função <u>g</u> aplicada a <u>x</u>.
+
+86
+00:05:38,420 --> 00:05:42,750
+Observem agora o tipo
+que obtemos no "toplevel".
+
+87
+00:05:42,750 --> 00:05:44,890
+Temos uma função como primeiro argumento,
+
+88
+00:05:44,890 --> 00:05:47,350
+e uma função como segundo argumento,
+
+89
+00:05:47,350 --> 00:05:51,780
+e como resultado temos também uma função,
+mesmo que pareça que faltem os parêntesis.
+
+90
+00:05:51,780 --> 00:05:53,740
+Mas, na verdade, os parêntesis estão correctos.
+
+91
+00:05:53,740 --> 00:05:59,440
+O que é interessante, é que o tipo
+da primeira função
+
+92
+00:05:59,440 --> 00:06:03,220
+tem que ser o mesmo que
+o tipo de resultado da segunda função.
+
+93
+00:06:03,220 --> 00:06:08,500
+O que é normal, se pensarmos na forma como as funçãos são aplicadas.
+
+94
+00:06:08,530 --> 00:06:11,000
+E então podemos experimentar isto,
+
+95
+00:06:11,000 --> 00:06:12,720
+e usar a nossa função "compose",
+
+96
+00:06:12,720 --> 00:06:18,870
+para criar a função sucessor
+com a função de duplicar,
+
+97
+00:06:18,870 --> 00:06:21,940
+para o valor 10.
+
+98
+00:06:21,940 --> 00:06:27,400
+E obtemos então o valor 21.
+
+99
+00:06:27,400 --> 00:06:31,120
+A restrição de tipos é bastante útil
+porque o verificador de tipos garante que
+
+100
+00:06:31,120 --> 00:06:34,600
+não possamos compôr duas funções
+que não sejam compatíveis
+
+101
+00:06:34,610 --> 00:06:36,210
+a nível de tipos.
+
+102
+00:06:36,210 --> 00:06:39,210
+Por exemplo, se tentarmos compôr
+estas duas funções,
+
+103
+00:06:39,210 --> 00:06:42,870
+o verificador de tipos vai dizer-nos
+que a composição não é possível
+
+104
+00:06:42,870 --> 00:06:44,670
+porque os tipos não são compatíveis.
+
+105
+00:06:47,410 --> 00:06:50,660
+Por último, uma nota sobre
+aplicação de funções em sequência.
+
+106
+00:06:50,660 --> 00:06:53,810
+De um ponto de vista sintático,
+isto é perfeitamente aceitável de escrever.
+
+107
+00:06:53,810 --> 00:06:57,490
+<u>(exp1 exp2) exp3</u>
+
+108
+00:06:57,490 --> 00:06:58,600
+Isto significa que:
+
+109
+00:06:58,600 --> 00:07:03,090
+Primeiro aplicamos <u>exp1</u> a <u>exp2</u>.
+
+110
+00:07:03,090 --> 00:07:06,210
+E o resultado obtido desta aplicação,
+
+111
+00:07:06,210 --> 00:07:10,340
+pode ser usado para aplicar a <u>exp3</u>.
+
+112
+00:07:10,340 --> 00:07:13,120
+E com tudo o que vimos até agora,
+isto poderá fazer sentido,
+
+113
+00:07:13,120 --> 00:07:15,020
+dependendo dos tipos.
+
+114
+00:07:15,020 --> 00:07:18,800
+Uma vez que é possível
+que ao aplicar <u>exp1</u> a <u>exp2</u>,
+
+115
+00:07:18,800 --> 00:07:21,600
+tem como resultado um valor que é funcional,
+
+116
+00:07:21,620 --> 00:07:24,590
+e que pode por sua vez ser aplicado a <u>exp3</u>.
+
+117
+00:07:24,590 --> 00:07:30,280
+A aplicação de funções tem associatividade
+à esquerda
+
+118
+00:07:30,280 --> 00:07:33,440
+o que significa que a sequência escrita ao
+cimo do slide <u>exp1</u> <u>exp2</u> <u>exp3</u>
+
+119
+00:07:33,440 --> 00:07:36,700
+é equivalente a ter parentêsis no lado esquerdo da função.
+<u>(exp1</u> <u>exp2)</u> <u>exp3</u>
+
+120
+00:07:39,210 --> 00:07:41,690
+Este exemplo serve para demonstrar que
+
+121
+00:07:41,690 --> 00:07:44,310
+a aplicação de funções tem associatividade à esquerda.
+
+122
+00:07:44,310 --> 00:07:47,680
+como já tinhamos visto na primeira semana.
+
+123
+00:07:47,680 --> 00:07:49,410
+Isto serve apenas como revisão.
+
+124
+00:07:49,410 --> 00:07:52,450
+Então se, por exemplo, tivermos
+a função de duplicar,
+
+125
+00:07:52,450 --> 00:07:57,150
+que já vimos bastantes vezes
+durante este MOOC.
+
+126
+00:07:57,150 --> 00:08:02,580
+Se tentarmos escrever
+<u>double double 5</u>.
+
+127
+00:08:02,580 --> 00:08:05,800
+Isto iria ser lido como:
+aplicar o primeiro <u>double</u> ao segundo <u>double</u>,
+
+128
+00:08:05,800 --> 00:08:08,940
+e depois aplicar o resultado deste cálculo ao valor 5.
+
+129
+00:08:08,940 --> 00:08:12,110
+o que pode fazer sentido em alguns casos,
+
+130
+00:08:12,110 --> 00:08:17,610
+mas não no nosso código,
+uma vez que isto vai gerar um erro de tipos.
+
+131
+00:08:17,610 --> 00:08:20,430
+Para aplicarmos a função na ordem correcta
+
+132
+00:08:20,430 --> 00:08:23,310
+temos que indicar essa ordem,
+e de certa forma
+
+133
+00:08:23,310 --> 00:08:27,190
+anular a associatividade à esquerda
+usando parêntesis.
+
+134
+00:08:27,190 --> 00:08:29,990
+Temos então que escrever a expressão desta forma.
+
+135
+00:08:29,990 --> 00:08:32,750
+E obtemos o valor correcto: 20.

@@ -1,0 +1,347 @@
+1
+00:00:00,130 --> 00:00:05,670
+Nesta sequência vamos falar de como funções com
+vários paramêtros se enquadram.
+
+2
+00:00:05,670 --> 00:00:10,930
+Na primeira sequência vimos a sintaxe para
+expressões de funções com um paramêtro
+
+3
+00:00:10,930 --> 00:00:17,519
+usando a keyword <u>function</u>. Se quisermos
+escrever uma expressão de uma função com vários
+
+4
+00:00:17,519 --> 00:00:22,989
+parâmetros então usamos uma keyword diferente que é
+<u>fun</u> portanto escrevemos <u>fun</u> e
+
+5
+00:00:22,989 --> 00:00:28,489
+depois a sequência dos seus parâmteros formais, uma seta
+e o seu corpo. Existe uma pequena diferença
+
+6
+00:00:28,489 --> 00:00:32,680
+entre a keyword <u>fun</u> e a keyword <u>function</u> :
+como vimos na primeira sequência
+
+7
+00:00:32,680 --> 00:00:38,870
+<u>function</u> permite-nos escrever diretamente um padrão
+e definir a função por pattern
+
+8
+00:00:38,870 --> 00:00:45,010
+matching. Isto não é permitido na forma <u>fun</u>,
+na forma <u>fun</u> apenas podemos usar um nome
+
+9
+00:00:45,010 --> 00:00:49,750
+para os parâmetros formais da expressão da função.
+Se quisermos fazer pattern matching
+
+10
+00:00:49,750 --> 00:00:54,230
+de algum deles temos de utilizar um pattern matching explícito.
+
+11
+00:00:54,230 --> 00:00:58,710
+Como já expliquei na sequência anterior, funções no OCaml são,
+na verdade,
+
+12
+00:00:58,710 --> 00:01:05,729
+cidadãos de primeira ordem, o que significa que é perfeitamente
+aceitável escrever uma função que receba um parâmetro
+
+13
+00:01:05,729 --> 00:01:12,640
+e dependendo desse parâmetro devolve outra função. Algo como neste
+exemplo : aqui
+
+14
+00:01:12,640 --> 00:01:17,859
+gostaríamos de ter uma expressão de função que
+recebe um parâmetro <u>n</u> e dependendo neste
+
+15
+00:01:17,859 --> 00:01:24,299
+parâmetro <u>n</u> devolve uma função que aumente o seu
+parâmetro <u>x</u> pelo valor de <u>n</u>.
+
+16
+00:01:24,299 --> 00:01:30,549
+Agora, qual seria o tipo de tal expressão? Bem, de facto, o
+tipo desta expressão
+
+17
+00:01:30,549 --> 00:01:37,329
+é algo que já vimos anteriormente como posso demonstrar
+no exemplo seguinte.
+
+18
+00:01:38,999 --> 00:01:44,459
+Neste slide vamos ver agora que a definição de uma
+função com vários parâmetros é na
+
+19
+00:01:44,459 --> 00:01:50,810
+verdade a mesma coisa que uma definição aninhada de
+funções com apenas um parâmetro.
+
+20
+00:01:50,810 --> 00:01:54,719
+Então podemos por exemplo definir uma função
+<u>f1</u> que primeiro recebe o primeiro parâmetro
+
+21
+00:01:54,719 --> 00:02:00,740
+<u>n</u> e dependendo de <u>n</u> devolve uma segunda
+função que recebe <u>x</u> e devolve <u>n+x</u>.
+
+22
+00:02:00,740 --> 00:02:09,220
+E como podemos ver isto dá-nos algo que até agora
+chamámos como uma função que recebe
+
+23
+00:02:09,220 --> 00:02:14,570
+dois argumentos. De facto o que que podemos fazer
+agora com esta função é que de facto podemos
+
+24
+00:02:14,570 --> 00:02:20,340
+aplicá-la ao primeiro parâmetro e depois aplicá-la
+ao segundo
+
+25
+00:02:20,340 --> 00:02:27,580
+parâmetro que esta comporta-se exatamente igual
+à forma que temos usado até agora que é escrevê-la
+
+26
+00:02:27,580 --> 00:02:34,130
+numa forma que se assemelha um pouco mais a uma
+função que recebe dois argumentos. Porém
+
+27
+00:02:34,130 --> 00:02:40,290
+como temos visto é apenas uma abreviação
+para a forma que foi mostrada anteriormente
+
+28
+00:02:40,290 --> 00:02:46,960
+na linha 3. Agora vamos escrever exatamente
+a mesma coisa na forma que temos utilizado
+até agora
+
+29
+00:02:46,960 --> 00:02:52,470
+pois como expliquei no slide anterior o que
+está escrito na linha 1 é apenas a
+
+30
+00:02:52,470 --> 00:02:58,210
+forma real que está por trás da abreviação
+na linha 7 que temos usado até agora. Então se
+
+31
+00:02:58,210 --> 00:03:03,230
+definirmos agora uma função <u>f2</u> da maneira
+que vimos na semana 1 vemos que o
+
+32
+00:03:03,230 --> 00:03:09,510
+tipo é precisamente o mesmo e se aplicarmos
+agora a função aos seus parâmetros podemos ver
+
+33
+00:03:09,510 --> 00:03:18,090
+que também se comporta exatamente igual à função
+f1 definida anteriormente.
+
+34
+00:03:21,660 --> 00:03:27,720
+Agora, o que vimos neste exemplo não é um
+acidente. De facto, funções com múltiplos
+
+35
+00:03:27,730 --> 00:03:34,760
+parâmetros são exatamente a mesma coisa que
+funções que retornam funções como valores. E
+isto
+
+36
+00:03:34,760 --> 00:03:40,400
+não é toda a verdade sobre funções com múltiplos
+parâmetros em OCaml: se escrevermos
+
+37
+00:03:40,400 --> 00:03:46,770
+algo como <u>fun x1 ... xn</u>, portanto uma expressão
+de uma função com n parâmetros que devolve algum
+
+38
+00:03:46,770 --> 00:03:54,180
+corpo é apenas um abreviação para uma função unária
+aninhada. Então é apenas uma abreviação
+
+39
+00:03:54,180 --> 00:03:59,420
+para um função que recebe primeiro <u>x1</u>, dependendo
+deste devolva uma função que recebe <u>x2</u>
+
+40
+00:03:59,420 --> 00:04:06,210
+e por aí em diante, até ao fim. Então funções com
+múltiplos argumentos são apenas uma abreviação
+
+41
+00:04:06,210 --> 00:04:10,190
+para funções aninhadas com um único parâmetro.
+
+42
+00:04:12,180 --> 00:04:16,959
+Agora, usando o que aprendemos até agora sobre
+as diferentes formas de escrever as mesmas
+
+43
+00:04:16,959 --> 00:04:22,380
+definições de uma função posso mostrar um exemplo
+onde podemos de facto dar pelo menos
+
+44
+00:04:22,380 --> 00:04:27,930
+quatro definições diferentes de precisamente a mesma
+função. Este exemplo funciona com um
+
+45
+00:04:27,930 --> 00:04:33,530
+tipo de dados algébrico definido recursivamente que
+é de facto uma variante do que temos visto até agora.
+Então
+
+46
+00:04:33,530 --> 00:04:40,260
+temos outra vez expressões, no entanto agora expressões
+são formadas com variáveis que contêm
+
+47
+00:04:40,260 --> 00:04:45,990
+o nome e a adição binária. Isto significa que de modo
+a interpretar,
+
+48
+00:04:45,990 --> 00:04:51,410
+a avaliar tal expressão temos que usar um contexto.
+E aqui podemos ver que
+
+49
+00:04:51,410 --> 00:04:57,500
+de facto o primeiro exemplo desta função, a função
+<u>eval</u> , agora escrita como uma expressão
+
+50
+00:04:57,500 --> 00:05:03,550
+de uma função que recebe dois parâmetros, <u>environment</u>
+, <u>expression</u>, e depois usa um padrão explícito
+
+51
+00:05:03,550 --> 00:05:09,210
+que corresponde ao segundo argumento da expressão.
+E o que podemos ver agora neste exemplo é
+
+52
+00:05:09,210 --> 00:05:14,310
+que dependendo no que encontramos na expressão ou
+olhamos para o valor
+
+53
+00:05:14,310 --> 00:05:25,020
+no contexto ou cálculamos a adição. Então o primeiro parâmetro  é
+uma lista associativa que associa
+
+54
+00:05:25,020 --> 00:05:30,840
+valores inteiros a strings, como primeiro parâmetro
+e então temos uma expressão e devolvemos
+
+55
+00:05:30,840 --> 00:05:36,860
+um valor inteiro no final. Aqui temos o nosso exemplo
+de execução e então vamos avaliar
+
+56
+00:05:36,860 --> 00:05:43,430
+esta pequena expressão num contexto em que <u>x</u>
+tem valor 2 e <u>y</u> tem valor 5, e então
+
+57
+00:05:43,430 --> 00:05:45,660
+vamos obter o valor 9.
+
+58
+00:05:47,280 --> 00:05:54,440
+Agora temos uma segunda forma equivalente da mesma função
+que usa primeiro uma expressão
+
+59
+00:05:54,440 --> 00:05:59,850
+função como um parâmetro explícito chamado <u>environment</u>
+e uma segunda expressão de uma função
+
+60
+00:05:59,850 --> 00:06:05,820
+com um pattern matching diferente sem introduzir um nome
+para o segundo parâmetro.
+
+61
+00:06:05,820 --> 00:06:12,980
+Então agora vamos passar isto para o top level e
+vamos obter precisamente o mesmo tipo, e depois
+
+62
+00:06:12,980 --> 00:06:21,639
+vamos executar esta função no nosso exemplo de
+execução e vamos obter o mesmo resultado.
+
+63
+00:06:21,639 --> 00:06:26,460
+Agora nesta terceira definição temos uma expressão
+de uma função que usa primeiro um nome como
+
+64
+00:06:26,460 --> 00:06:33,970
+primeiro parâmetro, <u>environment</u>, e depois um
+pattern matching implícito como segundo parâmetro.
+
+65
+00:06:33,970 --> 00:06:40,350
+Então o tipo que obtemos aqui é novamente o mesmo,
+e o resultado se aplicarmos esta função
+
+66
+00:06:40,350 --> 00:06:43,880
+também é o mesmo de antes.
+
+67
+00:06:44,920 --> 00:06:53,960
+E finalmente, temos a quarta, a última forma que use
+contextos let eval portanto
+
+68
+00:06:53,960 --> 00:07:00,820
+definimos a função juntamente com o seu primeiro parâmetro
+e como resultado devolve uma função
+
+69
+00:07:00,820 --> 00:07:08,120
+que é definida por um pattern matching implícito.
+Novamente, o que obtemos no top level
+
+70
+00:07:08,120 --> 00:07:17,639
+é o mesmo para o tipo assim como para o resultado.

@@ -1,0 +1,582 @@
+1
+00:00:07,660 --> 00:00:14,660
+Bem-vindos à última semana sobre programação
+funcional em OCaml.
+
+2
+00:00:14,660 --> 00:00:18,810
+O que vimos até agora?
+
+3
+00:00:18,810 --> 00:00:25,210
+Já somos capazes de definir tipos, funções e valores básicos
+no "toplevel".
+
+4
+00:00:25,210 --> 00:00:31,970
+O que tentámos fazer foi criar programas pequenos
+
+5
+00:00:31,970 --> 00:00:39,989
+que nos permitiram definir estruturas de dados e
+algoritmos,
+
+6
+00:00:39,989 --> 00:00:46,329
+como também nos permitiu ver que o OCaml,
+a linguagem principal do OCaml,
+
+7
+00:00:46,329 --> 00:00:51,590
+é óptima para escrever essas estruturas de dados
+e algoritmos
+
+8
+00:00:51,590 --> 00:00:54,620
+de uma maneira segura, consistente e eficiente.
+
+9
+00:00:54,620 --> 00:01:03,989
+Imaginemos agora que têm que lidar com o desenvolvimento
+de um grande projecto
+
+10
+00:01:03,989 --> 00:01:10,659
+e que têm a dificuldade acrescida de gerir
+a complexidade do sistema
+
+11
+00:01:10,659 --> 00:01:16,070
+que advém do elevado número de definições necessárias.
+
+12
+00:01:16,070 --> 00:01:19,470
+O problema é que muitas vezes, num sistema grande
+
+13
+00:01:19,470 --> 00:01:23,360
+é bastante fácil de nos perdermos nos detalhes da implementação.
+
+14
+00:01:23,360 --> 00:01:32,259
+A solução para este problema é o que se chama de
+abstação na engenharia de software.
+
+15
+00:01:32,259 --> 00:01:40,590
+A abstração é um conceito que pode ser entendido
+intrinsecamente,
+
+16
+00:01:40,590 --> 00:01:45,740
+sem o conhecimento exacto da sua implementação.
+
+17
+00:01:45,740 --> 00:01:49,390
+Daí ser uma maneira de nos podermos esquecer dos detalhes
+de implementação,
+
+18
+00:01:49,390 --> 00:01:54,649
+e perceber apenas uma parte do sistema.
+
+19
+00:01:54,649 --> 00:01:59,710
+Uma abstração pode ser construída sobre outra
+abstração,
+
+20
+00:01:59,710 --> 00:02:04,570
+de maneira a que o sistema seja construído a partir de um
+vocabulário
+
+21
+00:02:04,570 --> 00:02:13,510
+que, de forma clara, descreva a resposta a alguns problemas
+a um dado nível de abstração.
+
+22
+00:02:13,510 --> 00:02:17,620
+Na verdade, quando desenvolvemos software,
+
+23
+00:02:17,620 --> 00:02:23,190
+criamos várias camadas de abstrações de modo a construir uma
+boa arquitectura.
+
+24
+00:02:23,190 --> 00:02:30,300
+E, por isso, as regras do jogo são agora diferentes,
+
+25
+00:02:30,300 --> 00:02:33,550
+e o que queremos fazer é diferente
+
+26
+00:02:33,550 --> 00:02:37,590
+do que fazemos quando implementamos algoritmos.
+
+27
+00:02:37,590 --> 00:02:39,610
+A primeira coisa que temos que fazer é
+
+28
+00:02:39,610 --> 00:02:45,030
+conseguir separar o sistema em vários componentes
+mais pequenos,
+
+29
+00:02:45,030 --> 00:02:48,370
+que possam ser percebidos separadamente,
+
+30
+00:02:48,370 --> 00:02:57,800
+e que o seu desenvolvimento possa ser distribuído
+para vários programadores.
+
+31
+00:02:57,800 --> 00:03:01,739
+Porém convém organziar, por exmeplo, os nomes dos identificadores
+para que dois programadores não utilizem os mesmos nomes
+
+32
+00:03:01,739 --> 00:03:06,260
+de maneira a evitar conflitos.
+
+33
+00:03:06,260 --> 00:03:14,629
+E queremos também assegurar que a engenharia de software
+seja respeitada,
+
+34
+00:03:14,629 --> 00:03:20,739
+o que quer dizer que um programador não deve conseguir
+quebrar a abstração,
+
+35
+00:03:20,739 --> 00:03:24,440
+para aceder a detalhes que ele não deve conseguir saber.
+
+36
+00:03:24,440 --> 00:03:29,129
+E, já agora, uma boa propriedade de um componente é
+
+37
+00:03:29,129 --> 00:03:35,049
+a sua habilidade de ser reconfigurado e alterado
+depois do seu desenvolvimento.
+
+38
+00:03:35,049 --> 00:03:42,790
+Na verdade, o sistema de módulos do OCaml satisfaz
+todos estes requisitos.
+
+39
+00:03:42,790 --> 00:03:47,030
+E este irá ser o tópico desta última semana.
+
+40
+00:03:47,030 --> 00:03:50,379
+Vamos ver como estruturar software com a ajuda de módulos,
+
+41
+00:03:50,379 --> 00:03:53,220
+e como esconder informação.
+
+42
+00:03:53,220 --> 00:04:00,310
+Vamos fazer também um pequeno caso de estudo para sabermos
+como desenvolver bibliotecas para dicionários.
+
+43
+00:04:00,310 --> 00:04:05,760
+Vamos aprender algumas noções básicas do que são
+funções.
+
+44
+00:04:05,760 --> 00:04:13,480
+E finalmente, iremos ver como podemos compilar
+módulos vazios
+
+45
+00:04:13,480 --> 00:04:19,410
+e produzir programas executáveis de grandes dimensões.
+
+46
+00:04:19,410 --> 00:04:25,380
+A primeira coisa que precisamos de saber é que um módulo
+define um espaço de nomes.
+
+47
+00:04:25,380 --> 00:04:32,970
+Como já vimos anteriormente, a notação de ponto "."
+pode ser usada para aceder a um componente de módulo.
+
+48
+00:04:32,970 --> 00:04:34,590
+Quando escrevemos <u>List.length</u>,
+
+49
+00:04:34,590 --> 00:04:38,690
+é uma referência à função <u>length</u>,
+
+50
+00:04:38,690 --> 00:04:41,550
+que esta definida dentro do módulo <u>List</u>.
+
+51
+00:04:41,550 --> 00:04:46,610
+Se quiserem evitar escrever <u>List.something</u>,
+
+52
+00:04:46,610 --> 00:04:51,479
+é sempre possível abrir o espaço de nomes
+do módulo List,
+
+53
+00:04:51,479 --> 00:05:01,300
+para implicitamente referir à função <u>List.length</u> quando escrevemos
+apenas <u>length</u>.
+
+54
+00:05:01,300 --> 00:05:05,740
+Para conseguirmos acesso a estas referências
+podemos escrever <u>open List</u>,
+
+55
+00:05:05,740 --> 00:05:11,900
+Mas se abrirmos mais que um módulo, pode acontecer
+que estes contenham identificadores idênticos.
+
+56
+00:05:11,900 --> 00:05:15,430
+O último módulo que é aberto irá ter prioridade.
+
+57
+00:05:15,430 --> 00:05:19,150
+Como podemos então definir um módulo?
+
+58
+00:05:19,150 --> 00:05:22,720
+A sintaxe é a seguinte:
+
+59
+00:05:22,720 --> 00:05:28,520
+Usamos a palavra-chave <u>module</u> seguido do
+identificador do módulo,
+
+60
+00:05:28,520 --> 00:05:32,539
+e entre <u>struct</u> e <u>end</u>,
+
+61
+00:05:32,539 --> 00:05:36,530
+podemos escrever uma sequência de definições,
+
+62
+00:05:36,530 --> 00:05:40,440
+que vão fazer parte do módulo.
+
+63
+00:05:40,440 --> 00:05:42,680
+O que precisam de saber é que
+
+64
+00:05:42,680 --> 00:05:46,820
+um identificador de um módulo tem que começar
+com uma letra maiúscula.
+
+65
+00:05:46,820 --> 00:05:53,600
+Depois podem então escrever as definições
+da mesma forma que já conhecem:
+
+66
+00:05:53,600 --> 00:05:58,789
+valor, tipo, definições de exceções...
+Tudo dentro da implementação do módulo.
+
+67
+00:05:58,789 --> 00:06:03,220
+Por vezes pode ser necessário mudar o nome
+do módulo,
+
+68
+00:06:03,220 --> 00:06:07,830
+podemos para isso criar um pseudónimo da seguinte
+forma:
+
+69
+00:06:07,830 --> 00:06:17,900
+primeiro escrevemos <u>module</u> seguido do
+identificador para o módulo que queremos definir é igual <u>=</u>
+a outro identificar de módulo.
+
+70
+00:06:17,900 --> 00:06:26,340
+Vamos então ver uma implementação de um módulo
+em OCaml.
+
+71
+00:06:26,340 --> 00:06:31,440
+Temos então a palavra-chave "module" que inicia
+um módulo.
+
+72
+00:06:31,440 --> 00:06:35,819
+Neste caso, o nome do módulo é <u>Stack</u>,
+
+73
+00:06:35,819 --> 00:06:42,110
+e usámos uma letra maiúscula para o identificador.
+
+74
+00:06:42,110 --> 00:06:48,699
+A seguir à palavra <u>struct</u> implementámos
+várias funções e tipos,
+
+75
+00:06:48,699 --> 00:06:53,919
+que implementam várias estruturas de dados do módulo
+<u>Stack</u>.
+
+76
+00:06:53,919 --> 00:06:58,419
+O módulo <u>Stack</u> é implementado aqui como
+uma <u>list</u>,
+
+77
+00:06:58,419 --> 00:07:02,020
+a pilha vazia é uma lista vazia,
+
+78
+00:07:02,020 --> 00:07:09,599
+introduzir um elemento ao cimo da pilha é
+adicionar um elemento ao início da
+
+79
+00:07:09,599 --> 00:07:10,680
+lista,
+
+80
+00:07:10,680 --> 00:07:16,330
+e se quisermos remover <u>pop</u> que está ao cimo
+da pilha,
+
+81
+00:07:16,330 --> 00:07:20,500
+então a lista não pode estar vazia,
+
+82
+00:07:20,500 --> 00:07:22,569
+mas se tivermos uma lista não vazia,
+
+83
+00:07:22,569 --> 00:07:26,520
+podemos apenas devolver a cabeça da lista,
+
+84
+00:07:26,520 --> 00:07:31,690
+e a nova pilha é o resto ("tail") da lista.
+
+85
+00:07:31,690 --> 00:07:40,090
+Se avaliarmos isto, podemos ver que o OCaml
+aceita a definição,
+
+86
+00:07:40,090 --> 00:07:44,849
+e consegue inferir uma assinatura ("sig"),
+
+87
+00:07:44,849 --> 00:07:49,259
+que é na verdade o tipo do módulo,
+
+88
+00:07:49,259 --> 00:07:53,699
+que descreve as declarações de tipos,
+
+89
+00:07:53,699 --> 00:08:00,900
+como também os valores que são fornecidos
+pelo módulo.
+
+90
+00:08:00,900 --> 00:08:06,780
+Podemos ver aqui que um dos valores é <u>empty</u>
+do tipo <u>'a list</u>.
+
+91
+00:08:06,780 --> 00:08:18,080
+Para usarmos o módulo, podemos usar a notação de ponto ".",
+como está aqui para extrair a lista vazia.
+
+92
+00:08:18,080 --> 00:08:22,190
+Podemos também inserir um elemento no topo da pilha,
+
+93
+00:08:22,190 --> 00:08:26,879
+e aqui, por exemplo, podemos retirar um elemento
+da lista.
+
+94
+00:08:26,879 --> 00:08:32,430
+Se tentarmos retirar outra valor vamos obter
+um lista vazia como resultado.
+
+95
+00:08:32,430 --> 00:08:46,420
+Os módulos também têm tipos e estes tipos têm
+o nome de assinaturas ou interfaces.
+
+96
+00:08:46,420 --> 00:08:54,690
+Vimos no exemplo anterior, que OCaml infere
+as assinaturas dos módulos.
+
+97
+00:08:54,690 --> 00:08:59,930
+Porém, um programador pode forçar que um módulo
+tenha uma assinatura específica,
+
+98
+00:08:59,930 --> 00:09:02,560
+e ele até o deve poder fazer,
+
+99
+00:09:02,560 --> 00:09:11,649
+uma vez que o conhecimento da assinatura do módulo
+é um aspecto importante de comunicação entre os programadores
+
+100
+00:09:11,649 --> 00:09:13,209
+num projecto grande escala.
+
+101
+00:09:13,209 --> 00:09:16,170
+Vamos falar mais sobre isto no próximo vídeo.
+
+102
+00:09:16,170 --> 00:09:20,870
+Temos então uma sintaxe para definir assinaturas:
+
+103
+00:09:20,870 --> 00:09:27,790
+usamos a palavra-chave <u>sig</u>.
+Entre <u>sig</u> e <u>end</u>,
+
+104
+00:09:27,790 --> 00:09:34,670
+temos as declarações para os diferentes componentes
+do nosso módulo.
+
+105
+00:09:34,670 --> 00:09:35,980
+Por exemplo, se tivermos um valor,
+
+106
+00:09:35,980 --> 00:09:41,450
+usamos a palavra-chave <u>val</u>, seguido por
+um indentificador do valor,
+
+107
+00:09:41,450 --> 00:09:45,860
+seguido de <u>:</u>, que indica o tipo do valor.
+
+108
+00:09:45,860 --> 00:09:51,450
+As outas declarações para tipos e excepções
+são escritos exactamente
+
+109
+00:09:51,450 --> 00:09:56,220
+da mesma maneira que escrevemos na implementação de
+um módulo.
+
+110
+00:09:56,220 --> 00:10:01,620
+Um módulo pode também conter outros módulos,
+
+111
+00:10:01,620 --> 00:10:05,000
+sendo assim possível criar uma hierarquia de módulos.
+
+112
+00:10:05,000 --> 00:10:13,230
+E, de igual forma, uma assinatura pode também conter
+assinaturas de outros módulos.
+
+113
+00:10:13,230 --> 00:10:17,190
+Para nos referirmos a submódulos,
+
+114
+00:10:17,190 --> 00:10:21,930
+temos que usar um caminho,
+
+115
+00:10:21,930 --> 00:10:29,550
+de forma a extendermos a notação de ponto
+e adicionar o nome de cada submódulo
+
+116
+00:10:29,550 --> 00:10:33,320
+de forma a que possamos descer na hierarquia.
+
+117
+00:10:33,320 --> 00:10:40,070
+É proíbido definir dois submódulos de um módulo
+que tenham o mesmo nome,
+
+118
+00:10:40,070 --> 00:10:46,100
+no entanto, um módulo pode conter dois valores
+que tenham o mesmo nome.
+
+119
+00:10:46,100 --> 00:10:52,209
+Por exemplo, se definirmos um módulo <u>Forest</u>,
+
+120
+00:10:52,209 --> 00:10:58,750
+e podemos também ter um submódulo <u>Tree</u>,
+
+121
+00:10:58,750 --> 00:11:01,610
+para representar uma árvore de uma floresta,
+
+122
+00:11:01,610 --> 00:11:09,920
+a definição dos tipos para as árvores podem ser
+
+123
+00:11:09,920 --> 00:11:18,800
+do tipo <u>forest</u>, que está definido no módulo
+<u>Forest</u>.
+
+124
+00:11:18,800 --> 00:11:24,910
+Quando submetemos este módulo no "toplevel" do OCaml,
+
+125
+00:11:24,910 --> 00:11:31,320
+podemos observar que a assinatura do módulo <u>Forest</u>
+contém outra assinatura para o submódulo
+
+126
+00:11:31,320 --> 00:11:33,149
+<u>Tree</u>.
+
+127
+00:11:33,149 --> 00:11:37,000
+Para acedermos a este espaço de nomes,
+
+128
+00:11:37,000 --> 00:11:39,380
+podemos apenas escrever <u>open</u>
+
+129
+00:11:39,380 --> 00:11:51,760
+e depois disso podemos também construir uma <u>Leaf</u> (folha)
+de uma <u>tree</u> (árvore).

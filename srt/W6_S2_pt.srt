@@ -1,0 +1,395 @@
+1
+00:00:00,340 --> 00:00:03,000
+Bem-vindo de volta.
+
+2
+00:00:03,000 --> 00:00:10,620
+Neste caso de estudo, vamos entrar em mais
+detalhes sobre
+
+3
+00:00:10,620 --> 00:00:16,200
+como tipos de dados abstratos podem ser usados
+para melhorar a modularidade de programas.
+
+4
+00:00:18,880 --> 00:00:25,699
+Por isso, neste caso de estudo, vamos definir um
+tipo módulo, uma interface,
+
+5
+00:00:25,699 --> 00:00:31,099
+que corresponde ao que esperamos de um módulo
+
+6
+00:00:31,099 --> 00:00:34,750
+que fornece uma estrutura de dados para um dicionário,
+
+7
+00:00:34,750 --> 00:00:38,820
+com as funções que funcionam em dicionários.
+
+8
+00:00:38,820 --> 00:00:46,270
+Portanto, uma pequena história, imaginemos que
+em primeiro lugar
+
+9
+00:00:46,270 --> 00:00:52,070
+o designer da interface escreveu algo como isto:
+
+10
+00:00:52,070 --> 00:00:59,239
+o tipo para dicionário é uma lista associativa,
+
+11
+00:00:59,239 --> 00:01:05,100
+uma lista de pares portanto, com uma chave e um valor,
+
+12
+00:01:05,100 --> 00:01:09,070
+e depois, existe um dicionário vazio,
+
+13
+00:01:09,070 --> 00:01:14,140
+uma função que recebe um dicionário, uma chave e um
+valor e
+
+14
+00:01:14,140 --> 00:01:19,640
+devolve um novo dicionário que contém todas as chaves
+do dicionário anterior
+
+15
+00:01:19,640 --> 00:01:28,350
+mais a nova chave relativa ao valor fornecido.
+
+16
+00:01:28,350 --> 00:01:31,890
+Existe também uma exceção que é lançada
+
+17
+00:01:31,890 --> 00:01:36,840
+quando uma procura falha.
+
+18
+00:01:36,840 --> 00:01:38,560
+E depois há então esta função de procura
+
+19
+00:01:38,560 --> 00:01:41,259
+que recebe um dicionário, uma chave,
+
+20
+00:01:41,259 --> 00:01:46,460
+e devolve um valor associado com esta chave no
+dicionário
+
+21
+00:01:46,460 --> 00:01:50,530
+se existir, ou lança <u>NotFound</u> caso contrário.
+
+22
+00:01:50,530 --> 00:02:00,299
+Então, este é um tipo módulo, e é aceite pelo compilador de OCaml.
+
+23
+00:02:00,299 --> 00:02:09,470
+Agora, esta é uma implementação óbvia que não vou detalhar,
+
+24
+00:02:09,470 --> 00:02:10,929
+para a assinatura,
+
+25
+00:02:10,929 --> 00:02:24,470
+e podemos escrever um cliente que faz uso de toda esta
+definição
+
+26
+00:02:24,470 --> 00:02:34,590
+para definir um módulo que armazena alguma relação entre
+um nome e um inteiro,
+
+27
+00:02:34,590 --> 00:02:36,250
+e funciona.
+
+28
+00:02:36,250 --> 00:02:38,670
+Tudo parece bem,
+
+29
+00:02:38,670 --> 00:02:42,810
+à exceção da interface que não está bem desenhada.
+
+30
+00:02:42,810 --> 00:02:46,450
+De facto, imaginemos o cenário seguinte:
+
+31
+00:02:46,450 --> 00:02:52,840
+o programador deste módulo repara que
+
+32
+00:02:52,840 --> 00:02:57,780
+finalmente, esta implementação baseada numa lista
+associativa
+
+33
+00:02:57,780 --> 00:03:02,170
+não é válida, porque não é verdadeiramente eficiente.
+
+34
+00:03:02,170 --> 00:03:06,040
+A função de procura é linear no tamanho da lista.
+
+35
+00:03:06,040 --> 00:03:12,310
+Por isso ele quer alterar a estrutura de dados que
+implementa o dicionário.
+
+36
+00:03:12,310 --> 00:03:19,620
+Mas infelizmente, a interface menciona a forma como
+o dicionário é implementado.
+
+37
+00:03:19,620 --> 00:03:27,629
+Por isso o cliente tem usado esta informação para
+implementar este valor neste módulo,
+
+38
+00:03:27,629 --> 00:03:35,430
+então <u>force</u> aqui é uma lista, por isso é válido
+aplicar-se a função <u>List.map</u>.
+
+39
+00:03:35,430 --> 00:03:39,030
+Então algo está mal aqui.
+
+40
+00:03:39,030 --> 00:03:42,920
+A evolução do primeiro módulo, a implementação do dicionário,
+
+41
+00:03:42,920 --> 00:03:47,620
+não podem ser feitas sem alterar o cliente.
+
+42
+00:03:47,620 --> 00:03:51,670
+Imaginemos então que existe um milhar de clientes para este
+módulo,
+
+43
+00:03:51,670 --> 00:03:55,959
+é necessário alterar um milhar de clientes,
+
+44
+00:03:55,959 --> 00:04:00,340
+apenas porque temos uma interface mal desenhada.
+
+45
+00:04:00,340 --> 00:04:05,620
+Imaginemos então que fizemos este tipo abstrato,
+
+46
+00:04:05,620 --> 00:04:10,799
+então em primeiro lugar seria impossível para o
+cliente
+
+47
+00:04:10,799 --> 00:04:15,090
+escrever uma chamada desta forma.
+
+48
+00:04:15,090 --> 00:04:19,269
+Vamos verificar que o compilador rejeita este código.
+
+49
+00:04:19,269 --> 00:04:24,220
+Sim, por razões que são agora clara para nós,
+
+50
+00:04:24,220 --> 00:04:27,800
+<u>Dict.t</u> é um tipo abstrato,
+
+51
+00:04:27,800 --> 00:04:30,860
+por isso mesmo que internamente esteja implementado como
+uma lista,
+
+52
+00:04:30,860 --> 00:04:33,990
+exteriormente não é uma lista.
+
+53
+00:04:33,990 --> 00:04:39,740
+Então temos de remover esta definição,
+
+54
+00:04:39,740 --> 00:04:42,580
+e agora, podemos continuar a história e
+
+55
+00:04:42,580 --> 00:04:51,820
+alterar a implementação do dicionário,
+
+56
+00:04:51,820 --> 00:04:54,040
+para que seja uma instância de uma árvore de
+pesquisa binária.
+
+57
+00:04:54,040 --> 00:04:56,729
+Mais uma vez, não vou detalhar esta implementação,
+
+58
+00:04:56,729 --> 00:05:03,410
+à exceção de que é uma implementação válida para um
+dicionário.
+
+59
+00:05:03,410 --> 00:05:04,860
+Apenas temos de saber que,
+
+60
+00:05:04,860 --> 00:05:14,090
+e de facto, o compilador verificou que o módulo
+satisfaz a assinatura do dicionário.
+
+61
+00:05:14,090 --> 00:05:18,860
+O ponto bom é o facto que
+
+62
+00:05:18,860 --> 00:05:25,100
+se pode reutilizar exatamente o mesmo código para
+o cliente,
+
+63
+00:05:25,100 --> 00:05:29,650
+e é um código válido.
+
+64
+00:05:29,650 --> 00:05:31,289
+Apenas um último reparo:
+
+65
+00:05:31,289 --> 00:05:37,430
+observemos que quando eu avalio este módulo,
+
+66
+00:05:37,430 --> 00:05:41,759
+a exceção <u>Dict.NotFound</u> é lançada.
+
+67
+00:05:41,759 --> 00:05:46,910
+Portanto um dos <u>lookup</u> aqui falhou.
+
+68
+00:05:46,910 --> 00:05:50,180
+Mas a exceção na verdade não é informativa
+
+69
+00:05:50,180 --> 00:05:54,270
+porque eu gostaria de ter aqui
+
+70
+00:05:54,270 --> 00:05:57,220
+o nome da chave que não foi encontrada
+
+71
+00:05:57,220 --> 00:05:58,139
+no dicionário.
+
+72
+00:05:59,800 --> 00:06:04,060
+Então, toda esta programação do módulo é muito bonita,
+
+73
+00:06:04,060 --> 00:06:10,110
+ainda assim, alguns pontos podem ser melhorados.
+
+74
+00:06:10,110 --> 00:06:14,949
+O primeiro é o facto de que a exceção que é lançada
+
+75
+00:06:14,949 --> 00:06:21,460
+quando uma procura falha não é muito informativa.
+
+76
+00:06:21,460 --> 00:06:25,610
+Gostaríamos de escrever uma exceção declarativa
+
+77
+00:06:25,610 --> 00:06:30,259
+mencionando não só o facto de que a chave não
+foi encontrada,
+
+78
+00:06:30,259 --> 00:06:34,419
+mas também qual a chave não encontrada.
+
+79
+00:06:34,419 --> 00:06:38,630
+Porém, isto não é possível diretamente no OCaml,
+
+80
+00:06:38,630 --> 00:06:42,039
+porque as exceções não podem ser polimórficas.
+
+81
+00:06:42,039 --> 00:06:53,030
+Para além disso, as nossas implementações do dicionário
+baseadas em árvores e listas
+
+82
+00:06:53,030 --> 00:06:58,840
+estão a usar as comparações polimórficas predefinidas
+dos valores
+
+83
+00:06:58,840 --> 00:07:00,849
+que o OCaml fornece,
+
+84
+00:07:00,849 --> 00:07:09,030
+mas por vezes pode ser conveniente definir outra
+comparação
+
+85
+00:07:09,030 --> 00:07:13,099
+e isso na verdade não é possível na nossa implementação.
+
+86
+00:07:13,099 --> 00:07:21,449
+Finalmente, no cliente, a referência para o
+módulo <u>Dict</u> está hardcoded no código.
+
+87
+00:07:21,449 --> 00:07:25,660
+Então não é possível alterá-la posteriormente.
+
+88
+00:07:25,660 --> 00:07:29,419
+Adiar esta escolha faria o cliente mais reutilizável
+
+89
+00:07:29,419 --> 00:07:35,050
+porque o mesmo código poderia ser utilizado com
+diferentes configurações,
+
+90
+00:07:35,050 --> 00:07:40,360
+dependendo da implementação do <u>Dict</u>
+que queremos usar.
+
+91
+00:07:40,360 --> 00:07:44,660
+Na próxima semana, vamos descobrir functores.
+
+92
+00:07:44,660 --> 00:07:47,680
+E estes vão resolver todos estes problemas.

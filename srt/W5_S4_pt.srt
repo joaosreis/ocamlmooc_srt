@@ -1,0 +1,383 @@
+1
+00:00:00,220 --> 00:00:05,480
+Neste vídeo vamos falar sobre um tipo de estruturas
+de dados mutáveis, os vectores.
+
+2
+00:00:05,480 --> 00:00:12,670
+Já vimos vectores numa fase anterior deste curso,
+nomeadamente, no terceiro vídeo da segunda semana.
+
+3
+00:00:12,670 --> 00:00:15,480
+Os vectores são uma estrutura de dados muito
+interessante, devido ao seu tamanho fixo,
+
+4
+00:00:15,480 --> 00:00:19,410
+o tempo necessário para aceder aos seus elementos
+é constante e podemos acedê-los directamente
+
+5
+00:00:19,410 --> 00:00:24,980
+e são uma estrutura que é facilmente usada
+em construção de ciclos
+
+6
+00:00:24,980 --> 00:00:26,269
+como o exemplo que acabámos de ver.
+
+7
+00:00:26,269 --> 00:00:29,810
+Vamos fazer uma revisão com um simples exercício:
+
+8
+00:00:29,810 --> 00:00:36,110
+Vamos escrever um segmento de código que utiliza um
+vector para encontrar todos os valores inteiros que são quadrados
+
+9
+00:00:36,110 --> 00:00:39,090
+e cúbicos.
+
+10
+00:00:39,090 --> 00:00:43,340
+Vamos então calcular estes números que são cúbicos mas
+também quadrados.
+
+11
+00:00:43,340 --> 00:00:46,629
+Primeiro que tudo, temos que definir uma função <u>cubes</u>
+de <u>n</u>
+
+12
+00:00:46,629 --> 00:00:51,070
+que irá criar um vector inicializado com os valores
+cúbicos de cada índice.
+
+13
+00:00:51,070 --> 00:01:00,840
+Ok, vamos então definir a nossa função para
+calcular a raíz quadrada de um valor inteiro
+
+14
+00:01:00,840 --> 00:01:05,339
+e também uma função para verificar se um valor inteiro
+é um quadrado.
+
+15
+00:01:05,339 --> 00:01:06,979
+Assim que definimos tudo,
+
+16
+00:01:06,979 --> 00:01:15,100
+o cálculo de todos os cubos que também são quadrados
+até a <u>n</u> não é muito difícil
+
+17
+00:01:15,100 --> 00:01:22,310
+com a função que temos aqui: como podem ver,
+basicamente criamos os cubos para os primeiros
+
+18
+00:01:22,310 --> 00:01:24,330
+<u>n</u> inteiros,
+
+19
+00:01:24,330 --> 00:01:28,930
+e depois iteramos sobre esses inteiros com um ciclo
+que já aprendemos a utilizar
+
+20
+00:01:28,930 --> 00:01:38,079
+e se encontrarmos algum elemento que seja o cubo
+e também o quadrado do índice então imprimimos
+
+21
+00:01:38,079 --> 00:01:39,360
+esse valor.
+
+22
+00:01:39,360 --> 00:01:50,590
+Ok, podemos então testar esta função com os primeiros 100
+valores e obter todos os valores inteiros que são quadrados
+
+23
+00:01:50,590 --> 00:01:53,840
+ e também cúbicos.
+
+24
+00:01:53,840 --> 00:02:00,229
+Ok, a boa notícia para alguns de nós é que os
+vectores em OCaml são mesmo vectores:
+
+25
+00:02:00,229 --> 00:02:03,930
+eles podem ser usados como no exemplo anterior
+
+26
+00:02:03,930 --> 00:02:07,380
+como também ser alterados.
+
+27
+00:02:07,380 --> 00:02:10,849
+Para alterar um vector é necessário usar um operador
+especial, o operador de actualização.
+
+28
+00:02:10,849 --> 00:02:14,110
+esta seta ao contrário,
+
+29
+00:02:14,110 --> 00:02:16,640
+e sim, depois de efectuarmos a actualização,
+
+30
+00:02:16,640 --> 00:02:20,670
+o valor anterior é perdido
+como podemos ver no próximo exemplo.
+
+31
+00:02:20,670 --> 00:02:27,330
+Ok, vamos definir um novo vector, com 5
+elementos.
+
+32
+00:02:27,330 --> 00:02:31,980
+E obviamente, pode aceder aos elementos
+do vector
+"array"
+
+33
+00:02:31,980 --> 00:02:35,810
+mas agora descobrimos um novo operador
+de actualização,
+
+34
+00:02:35,810 --> 00:02:38,280
+a seta para o lado esquerdo,
+
+35
+00:02:38,280 --> 00:02:42,379
+e podemos utilizar este operador de actualização
+para indicar que queremos modificar o conteúdo
+
+36
+00:02:42,379 --> 00:02:45,230
+da primeira célula
+
+37
+00:02:45,230 --> 00:02:48,790
+e vamos modificar o conteúdo de forma a colocar o valor
+100.
+
+38
+00:02:48,790 --> 00:02:54,140
+Como podem ver, o resultado da operação é do tipo
+"unit".
+
+39
+00:02:54,140 --> 00:02:58,780
+Mas aconteceu uma coisa como efeito secundário.
+
+40
+00:02:58,780 --> 00:03:04,010
+Se consultarmos novamente o conteúdo da primeira
+célula do vector
+
+41
+00:03:04,010 --> 00:03:07,540
+vemos o valor 100 e não o valor 0 que lá estava anteriormente.
+
+42
+00:03:07,540 --> 00:03:12,420
+E naturalmente, se olharmos para todo o vector, conseguimos ver
+que este foi modificado.
+
+43
+00:03:12,420 --> 00:03:13,920
+É o mesmo vector que antes,
+
+44
+00:03:13,920 --> 00:03:18,470
+não criámos um cópia do vector e modificámos
+um valor,
+
+45
+00:03:18,470 --> 00:03:20,599
+é exactamente o mesmo vector, mas com um valor modificado.
+
+46
+00:03:20,599 --> 00:03:27,200
+Assim que descobrimos que podemos modificar
+o conteúdo de um vector quantas vezes quisermos
+
+47
+00:03:27,200 --> 00:03:35,970
+torna-se fácil de escrever operações na forma tradicional
+imperativa que é usada em muitas outras linguagens de programação,
+
+48
+00:03:35,970 --> 00:03:41,959
+e por exemplo, podemos decidir e fazer deslocar
+o conteúdo do vector para a
+
+49
+00:03:41,959 --> 00:03:42,040
+esquerda.
+
+50
+00:03:42,040 --> 00:03:46,780
+Podemos para isso definir a função <u>rotate</u>
+que vemos aqui,
+
+51
+00:03:46,780 --> 00:03:50,709
+A função recebe um vector <u>a</u>,
+
+52
+00:03:50,709 --> 00:03:55,439
+depois calcula o comprimento do vector ao chamar
+a função <u>Array.length</u>,
+
+53
+00:03:55,439 --> 00:03:58,530
+e guarda o valor que está mais à esquerda,
+
+54
+00:03:58,530 --> 00:03:59,909
+o que está na posição 0,
+
+55
+00:03:59,909 --> 00:04:01,480
+porque vai ser reescrito,
+
+56
+00:04:01,480 --> 00:04:08,409
+e, como já aprendemos, podemos usar um ciclo for para
+deslocar todos os valores para a esquerda
+
+57
+00:04:08,409 --> 00:04:13,760
+e depois actualizamos a última posição
+com o valor da primeira célula.
+
+58
+00:04:13,760 --> 00:04:23,889
+Ok, podemos agora enviar para a função <u>rotate</u> para o
+compilador
+59
+00:04:23,889 --> 00:04:24,440
+e ver que foi aceite.
+
+60
+00:04:24,440 --> 00:04:28,490
+Esta função aceita um vector polimórfico
+
+61
+00:04:28,490 --> 00:04:30,389
+em que não interessa o que são os elementos,
+
+62
+00:04:30,389 --> 00:04:34,930
+e tem o tipo "unit" como resultado, uma vez que
+não existe nada como resultado:
+
+63
+00:04:34,930 --> 00:04:39,180
+a única coisa que fizemos foi modificar
+o conteúdo do vector que recebemos
+
+64
+00:04:39,180 --> 00:04:41,330
+por argumento.
+
+65
+00:04:41,330 --> 00:04:44,800
+Vamos experimentar a função.
+
+66
+00:04:44,800 --> 00:04:49,590
+Isto é uma boa maneira de utilizar a função <u>Array.init</u>
+para criar um vector de elementos
+
+67
+00:04:49,590 --> 00:04:50,699
+do 0 ao 9.
+
+68
+00:04:50,699 --> 00:04:59,530
+Como podem ver, agora podemos deslocar
+os elementos apenas 1 vez.
+
+69
+00:04:59,530 --> 00:05:05,979
+E assim que fazemos a deslocação, podemos ver que
+todos os elementos foram movidos 1 posição
+
+70
+00:05:05,979 --> 00:05:08,009
+para a esquerda
+
+71
+00:05:08,009 --> 00:05:14,639
+Podemos mover outra vez os elementos.
+
+72
+00:05:14,639 --> 00:05:16,500
+E podemos utilizar esta função as vezes que quisermos.
+
+73
+00:05:16,500 --> 00:05:22,110
+Bem, isto foi um exemplo muito simples de como
+podemos usar os vectores em OCaml.
+
+74
+00:05:22,110 --> 00:05:25,539
+Exactamente da mesma maneira que em muitas outras
+linguagens de programação.
+
+75
+00:05:25,539 --> 00:05:30,490
+Algumas notas sobre o operador de actualização.
+
+76
+00:05:30,490 --> 00:05:35,370
+Pode ser utilizador para modificações em geral,
+e quando virem a expressão <u>e1</u>,
+
+77
+00:05:35,370 --> 00:05:37,690
+seguido do operador de actualização, seguido de <u>e2</u>,
+
+78
+00:05:37,690 --> 00:05:42,750
+a expressão <u>e1</u> é avaliada e tem que ser um valor mutável.
+
+79
+00:05:42,750 --> 00:05:46,289
+O verificador de tipos irá verificar e assegurar
+se <u>e1</u> é realmente um valor mutável.
+
+80
+00:05:46,289 --> 00:05:53,699
+Este valor mutável é modificado e terá como
+novo valor o resultado da avaliação da expressão
+
+81
+00:05:53,699 --> 00:05:54,800
+<u>e2</u>.
+
+82
+00:05:54,800 --> 00:06:00,970
+O tipo da operação toda será <u>unit</u>
+
+83
+00:06:00,970 --> 00:06:07,410
+Para finalizar, o vector, que já tinhamos utilizado
+várias vezes, é na verdade mutável
+
+84
+00:06:07,410 --> 00:06:14,600
+e que o operador de actualização é utilizado para
+modificar as células do vector.

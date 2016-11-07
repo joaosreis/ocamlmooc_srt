@@ -1,0 +1,454 @@
+1
+00:00:07,799 --> 00:00:13,000
+Olá novamente, bem vindos à quarta semana
+que é dedicada a funções em OCaml.
+
+2
+00:00:14,000 --> 00:00:19,720
+Nesta semana, iremos começar com expressões funcionais,
+veremos que irá conseguir escrever expressões,
+
+3
+00:00:20,000 --> 00:00:22,000
+que denotam funções como valores.
+
+4
+00:00:22,000 --> 00:00:26,620
+Na verdade, em OCaml, as funções são
+o que chamamos de cidadãos de primeira classe.
+
+5
+00:00:26,620 --> 00:00:32,620
+O que significa que têm precisamente o mesmo estado
+que qualquer outro valor que possamos escrever em OCaml.
+
+6
+00:00:33,000 --> 00:00:36,000
+Em seguida, continuaremos com
+funções com vários parâmetros,
+
+7
+00:00:36,000 --> 00:00:40,000
+e, ainda falaremos,
+sobre o que chamamos de aplicação parcial de funções.
+
+8
+00:00:40,000 --> 00:00:46,000
+Finalmente, iremos ver algumas aplicações
+de funções de ordem superior em listas.
+
+9
+00:00:46,000 --> 00:00:51,000
+Iremos ainda mapear funções sobre listas,
+bem como aplicar funções de "fold" sobre listas.
+
+10
+00:00:51,340 --> 00:00:56,900
+Então, a sintaxe para uma expressão funcional
+utiliza a keyword <u>function</u>,
+
+11
+00:00:56,900 --> 00:00:58,900
+que denota que estamos a definir uma função.
+
+12
+00:00:59,000 --> 00:01:04,000
+Temos então,
+a keyword <u>function</u> algum identificador <u>-></u> uma expressão.
+
+13
+00:01:04,000 --> 00:01:06,000
+O que significa isto?
+
+14
+00:01:06,000 --> 00:01:12,000
+Esta construção é uma expressão,
+que denota uma função anónima,
+
+15
+00:01:12,000 --> 00:01:19,000
+esta função recebe um argumento chamado <u>id</u>, e
+tem um corpo que é escrito na expressão <u>exp</u>.
+
+16
+00:01:19,000 --> 00:01:26,000
+E, como seria de esperar, iremos quase sempre utilizar o identificador <u>id</u>
+aquando da escrita do corpo <u>exp</u>.
+
+17
+00:01:26,980 --> 00:01:31,500
+Um exemplo disto será
+um função que mapeie <u>x</u> para <u>x+1</u>.
+
+18
+00:01:31,500 --> 00:01:34,500
+Isto sera escrito: <u>function x -> x+1</u>.
+
+19
+00:01:35,380 --> 00:01:39,140
+Portanto, isto é bastante simples de escrever.
+
+20
+00:01:40,200 --> 00:01:45,600
+Claro que, o alcance do parâmetro desta função será restringido à expressão,
+
+21
+00:01:45,600 --> 00:01:52,100
+como ja acontecia,
+quando definimos funções com nome.
+
+22
+00:01:52,100 --> 00:01:56,100
+Como qualquer outra,
+uma expressão funcional, também possui um tipo.
+
+23
+00:01:56,100 --> 00:02:00,000
+E já agora, visto que estamos a definir uma função,
+esta expressão, como seria de esperar, tem o tipo funcional.
+
+24
+00:02:00,100 --> 00:02:06,100
+Entao, o tipo que obteremos para esta contrução
+será algum tipo seta <u>t1 -> t2</u>,
+
+25
+00:02:06,100 --> 00:02:11,600
+que é um tipo derivado,
+<u>t1</u> será do tipo do parâmetro <u>id</u>,
+
+26
+00:02:11,600 --> 00:02:17,100
+e <u>t2</u> será do tipo da expressão
+que é o corpo desta função.
+
+27
+00:02:17,100 --> 00:02:23,100
+Então, porque que é que isto é interessante?
+Estas construções de funções anónimas?
+
+28
+00:02:25,580 --> 00:02:28,880
+Vamos dar uma olhada a
+de expressões funcionais,
+
+29
+00:02:28,880 --> 00:02:32,400
+que são expressões que
+calculam o valor de um tipo funcional.
+
+30
+00:02:32,400 --> 00:02:37,320
+Como aqui, na primeira linha, temos uma expressão
+que calcula a função sucessor.
+
+31
+00:02:37,320 --> 00:02:42,100
+Esta é uma função do tipo <u>int</u> para <u>int</u>,
+e que recebe <u>x</u> e devolve <u>x+1</u>.
+
+32
+00:02:42,100 --> 00:02:46,500
+Claro que poderemos ter expressões mais
+complicadas no corpo de uma função.
+
+33
+00:02:46,500 --> 00:02:48,280
+Como esta, aqui na próxima linha,
+
+34
+00:02:48,280 --> 00:02:55,040
+isto é uma função que recebe um <u>y</u> e devolve uma lista de listas,
+que usam <u>y</u> na sua definição.
+
+35
+00:02:55,040 --> 00:03:01,680
+Obtemos então uma expressão que tem o tipo
+<u>int -> int list list</u> que é uma lista de listas de inteiros.
+
+36
+00:03:03,220 --> 00:03:06,700
+Finalmente temos aqui uma novidade
+sobre aplicação de funções.
+
+37
+00:03:07,640 --> 00:03:11,180
+O que vemos aqui é que,
+o que escrevemos no lugar de função,
+
+38
+00:03:11,180 --> 00:03:12,920
+quando escrevemos aplicações de funções,
+
+39
+00:03:12,920 --> 00:03:16,020
+não é necessariamente o nome de uma função,
+
+40
+00:03:16,020 --> 00:03:20,200
+mas sim, qualquer expressão que devolva
+algo do tipo função.
+
+41
+00:03:20,200 --> 00:03:24,200
+Como está expressão funcional, escrita nesta linha.
+
+42
+00:03:24,200 --> 00:03:28,280
+E funciona na perfeição,
+e devolve o que era esperado.
+
+43
+00:03:30,140 --> 00:03:36,240
+Usando estas expressões funcionais,
+podemos agora escrever funções de maneira diferente
+
+44
+00:03:36,240 --> 00:03:39,580
+que definir funções com nome.
+
+45
+00:03:39,580 --> 00:03:42,900
+Na verdade, a forma que eu mostrei na primeira semana,
+
+46
+00:03:42,900 --> 00:03:50,200
+quando definimos a função <u>f</u> escrevendo
+<u>let f x = e</u> é apenas uma abreviatura.
+
+47
+00:03:50,200 --> 00:03:55,820
+É a abreviatura para a definição de um identificador <u>f</u>,
+
+48
+00:03:55,820 --> 00:04:00,700
+o que significa que
+poderiamos escrever <u>let f = alguma coisa</u>.
+
+49
+00:04:00,700 --> 00:04:06,200
+E este alguma coisa é o valor
+que será atribuido ao nome <u>f</u>, que é a função.
+
+50
+00:04:06,420 --> 00:04:17,440
+Resumindo, isto significa que a forma <u>let f x = e</u>
+é apenas uma abreviatura para <u>let f = function x -> e</u>.
+
+51
+00:04:17,500 --> 00:04:26,200
+Temos então apenas uma maenira de definir
+um identificador, que é <u>let name = something</u>.
+
+52
+00:04:26,200 --> 00:04:30,780
+A única coisa que é mais geral do que
+do que tinhamos visto na primeira semana é que o something,
+
+53
+00:04:30,780 --> 00:04:34,540
+a expressão,
+é agora uma expressão de um tipo mais complicado.
+
+54
+00:04:34,540 --> 00:04:36,540
+Que é, o tipo funcional.
+
+55
+00:04:38,480 --> 00:04:43,960
+Aqui, podemos ver que o que temos usado até agora é apenas uma abreviação,
+
+56
+00:04:43,960 --> 00:04:50,260
+para a atribuição de um identificador
+para uma expressão funcional na definição de uma função.
+
+57
+00:04:50,260 --> 00:04:56,800
+Esta é a primeira forma que vimos para
+para definir funções, durante a primeira semana.
+
+58
+00:04:56,800 --> 00:05:01,240
+Aqui, definimos a função double
+na sua forma normal, e escrevemos:
+
+59
+00:05:01,500 --> 00:05:04,500
+<u>let double x =</u> ao corpo da função.
+
+60
+00:05:04,500 --> 00:05:11,220
+Verá que de facto isto define a função,
+a que chamámos double, e que esta se comporta como esperado.
+
+61
+00:05:11,540 --> 00:05:14,140
+Como expliquei no slide anterior,
+
+62
+00:05:14,240 --> 00:05:17,860
+isto é apenas uma abreviatura da atribuição do identificador double
+
+63
+00:05:17,860 --> 00:05:22,040
+a uma expressão funcional,
+que denota a mesma função.
+
+64
+00:05:22,040 --> 00:05:25,980
+Obtemos então, excatamente a mesma
+resposta do toplevel.
+
+65
+00:05:25,980 --> 00:05:30,940
+E de facto, a função que obtemos
+calcula precisamente a mesma coisa.
+
+66
+00:05:33,020 --> 00:05:37,260
+A forma mais geral de definir uma função,
+ou uma expressão funcional,
+
+67
+00:05:37,260 --> 00:05:41,660
+é de facto a seguinte:
+começamos sempre com a keyword <u>function</u>.
+
+68
+00:05:41,660 --> 00:05:46,000
+E geralmente,
+temos uma sequência correspondência de padrões.
+
+69
+00:05:46,000 --> 00:05:50,460
+Temos então uma sequência de padrões,
+e associados a cada um destes padrões,
+
+70
+00:05:50,460 --> 00:05:51,700
+temos uma expressão.
+
+71
+00:05:51,700 --> 00:05:54,000
+E como é normal em <u>pattern matching</u>
+
+72
+00:05:54,040 --> 00:05:59,840
+Nas expressões poderemos utilizar os identificadores
+introduzidos pelo padrão correspondente.
+
+73
+00:06:00,360 --> 00:06:04,400
+Podem reparar que a forma que vos mostrei,
+no início desta sequência,
+
+74
+00:06:04,400 --> 00:06:11,200
+<u>function x -> exp</u>, é apenas um caso particular
+desta forma geral, mas que contem apenas um padrão.
+
+75
+00:06:11,200 --> 00:06:15,200
+E o único padrão é reduzido a um identificador.
+
+76
+00:06:15,200 --> 00:06:20,840
+Podem reparar que, não temos a
+a barra vertical no início do padrão,
+
+77
+00:06:20,840 --> 00:06:22,720
+o que é permitido pela sintaxe,
+
+78
+00:06:22,720 --> 00:06:30,980
+visto que a escrita da barra vertical à frente do primeiro padrão
+é de facto opcional e não temo sempre que a escrever.
+
+79
+00:06:33,780 --> 00:06:37,780
+Vamos agora ver algumas definições de funções que usam
+correspondência de padrões.
+
+80
+00:06:37,780 --> 00:06:41,540
+Por exemplo, aqui temos a função do comprimento de listas.
+
+81
+00:06:41,540 --> 00:06:43,540
+Note que nesta definição,
+
+82
+00:06:43,540 --> 00:06:48,100
+usamos imediatamente a distinção de padrões a seguir
+à keyword <u>function</u>.
+
+83
+00:06:48,100 --> 00:06:54,100
+E não temos que dar um nome ao
+parâmetro formal desta função.
+
+84
+00:06:54,100 --> 00:07:01,280
+Ao passarmos esta função para o toplevel, obtemos então,
+a função do tipo esperado <u>'a list -> int</u>.
+
+85
+00:07:01,280 --> 00:07:06,440
+E podemos avaliar esta função com um
+pequeno exemplo,
+
+86
+00:07:06,560 --> 00:07:10,100
+para nos convencer que de facto, esta funciona.
+
+87
+00:07:10,100 --> 00:07:17,400
+Um pouco mais interessante será aplicar isto a
+estruturas de dados como vimos na terceira semana.
+
+88
+00:07:17,400 --> 00:07:21,900
+Temos aqui um tipo de dados de expressões,
+que podem ser:
+
+89
+00:07:21,900 --> 00:07:29,760
+constantes inteiras, que podem ser compostas,
+usando um construtor binário para adição.
+
+90
+00:07:29,760 --> 00:07:35,120
+Ok, agora podemos definir uma função recursiva
+que avalia expressões do tipo <u> expr </u>
+
+91
+00:07:35,120 --> 00:07:42,440
+usando correspondência de padrões, e que tem a forma
+de uma definição de funções sem a definição explícita do parâmetro.
+
+92
+00:07:42,440 --> 00:07:46,740
+Pode observar que de facto,
+a forma desta função
+
+93
+00:07:46,740 --> 00:07:51,880
+segue precisamente a forma da definição
+do tipo sobre o qual estamos a trabalhar.
+
+94
+00:07:52,600 --> 00:07:56,600
+Obtemos portanto, uma função do tipo
+<u>expr -> int</u>.
+
+95
+00:07:56,600 --> 00:08:03,780
+Podemos agora avaliar a nossa função com um pequeno exemplo,
+e se fizer as contas,
+
+96
+00:08:03,780 --> 00:08:07,280
+verá que obtemos,
+precisamente o resultado que era suposto.
